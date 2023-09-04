@@ -1,0 +1,40 @@
+
+Nom				Lignes de Metro				Lignes de Bus
+
+
+
+Tour Eiffel			9-Trocadéro				82-
+				6-Bir-Hakeim				40-
+				8-École-Militaire	
+
+Sacre coeur			2-Anvers				30-
+				12-Abbesses				31-
+									80-
+									85-
+
+Louvre				1-Palais Royal-Musée du Louvre		21-
+				7-Palais Royal-Musée du Louvre		27-
+									39-
+									67-	
+									68-
+									69-
+									72-
+									74-
+									85-
+									95-		
+
+Arc de Triomphe			1-Charles de Gaulle - Étoile		341-
+				6-Charles de Gaulle - Étoile		52-
+									73-
+									92-
+
+Cathdrale Notre Dame		4-Station Cité ou Saint-Michel		38-
+				1-Hôtel de Ville			47-
+				11-Hôtel de Ville			63-
+									72-
+									74-
+									75-
+Les Invalides			8-Invalides
+				13-Invalides
+
+Jardin des Tuileries
