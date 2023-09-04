@@ -1,4 +1,5 @@
 <?php
+require("lieux.php");
 class Transport {
 
     public $id;
@@ -7,7 +8,7 @@ class Transport {
     public $arret;
     public $lieux = [];
 
-    function __construct($id, $type, $ligne, $arret) {
+    public function __construct($id, $type, $ligne, $arret) {
 
         $this->id = $id;
         $this->type = $type;
@@ -16,65 +17,65 @@ class Transport {
 
     }
 
-    function get_id(): int {
+    public function get_id(): int {
 
         return $this->id;
 
     }
 
-    function set_id(int $id): void {
+    public function set_id(int $id): void {
 
         $this->id = $id;
 
     }
 
-    function get_type(): string {
+    public function get_type(): string {
 
         return $this->type;
 
     }
 
-    function set_type(string $type) {
+    public function set_type(string $type) {
 
         $this->type = $type;
 
     }
 
-    function get_ligne() {
+    public function get_ligne() {
 
         return $this->ligne;
 
     }
 
-    function set_ligne(int $ligne) {
+    public function set_ligne(int $ligne) {
 
         $this->ligne = $ligne;
 
     }
 
-    function get_arret() {
+    public function get_arret() {
 
         return $this->arret;
 
     }
 
-    function set_arret(string $arret) {
+    public function set_arret(string $arret) {
         
         $this->arret = $arret;
 
     }
 
-    function add_lieu(Lieu $lieu) {
+    public function add_lieu(Lieu $lieu) {
 
         if (in_array($lieu, $this->lieux)) {
 
             array_push($this->lieu, $lieu);
-            
+
         }
 
     }
 
-    function remove_lieu(Lieu $lieu) {
+    public function remove_lieu(Lieu $lieu) {
 
         $index = array_search($lieu, $this->lieu);
 

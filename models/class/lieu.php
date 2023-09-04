@@ -1,5 +1,6 @@
 <?php
-Class Lieux {
+require("transport.php");
+Class Lieu {
 
     public $id;
     public $nom;
