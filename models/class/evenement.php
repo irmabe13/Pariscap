@@ -58,7 +58,7 @@ Class Evenement {
 
     }
 
-    get_prix() : float {
+    public function get_prix() : float {
 
         return $this->prix;
 
