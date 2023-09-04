@@ -1,6 +1,6 @@
 <?php
-require("lieu.php")
-class Evenement {
+require("lieu.php");
+Class Evenement {
 
     public $id;
     public $titre;
@@ -34,13 +34,59 @@ class Evenement {
 
     }
 
-    public function get_titre(string $titre) {
+    public function get_titre() {
         
         return $this->titre;
 
     }
 
-    public function 
+    public function get_prix() : float {
+
+        return $this->prix;
+
+    }
+
+    public function set_prix($unPrix) {
+        
+        $this->prix = $unPrix;
+
+    }
+
+    public function get_date_debut() {
+
+        return $this->date_debut;
+
+    }
+
+    public function set_date_debut($une_date) {
+
+        $this->date_debut = $une_date;
+
+    }
+
+    public function get_date_fin() {
+
+        return $this->date_fin;
+
+    }
+
+    public function set_date_fin($une_date) {
+
+        $this->date_fin = $une_date;
+
+    }
+
+    public function get_lieu() {
+
+        return $this->lieu;
+
+    }
+
+    public function set_lieu($un_lieu) {
+
+        $this->lieu = $un_lieu;
+
+    }
 
 }
 ?>
