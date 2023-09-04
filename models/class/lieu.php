@@ -9,7 +9,7 @@ Class Lieu {
     public $evenements;
 
 
-    function __construct($id, $nom, $description, $transports, $evenements) {
+    public function __construct($id, $nom, $description, $transports, $evenements) {
 
         $this->id = $id;
         $this->nom = $nom;
@@ -19,49 +19,49 @@ Class Lieu {
 
     }
 
-    function getId(): int {
+    public function get_id(): int {
 
         return $this->id;
 
     }
 
-    function setId($unId){
+    public function set_id($unId){
 
         $this->id = $unId;
 
     }
 
-    function getNom(): string {
+    public function get_nom(): string {
 
         return $this->nom;
 
     }
 
-    function setNom($unNom) {
+    public function set_nom($unNom) {
 
         $this->nom = $unNom;
 
     }
 
-    function getDescription(): string {
+    public function get_description(): string {
 
         return $this->description;
 
     }
 
-    function setDescription($uneDescription) {
+    public function set_description($uneDescription) {
 
         $this->description = $uneDescription;
 
     }
 
-    function getTransports() : array {
+    public function get_transports() : array {
 
         return $this->transports;
 
     }
 
-    function addTransport($unTransport) {
+    public function add_transport($unTransport) {
         if (in_array($unTransport, $this->transports)) {
 
             array_push($this->transports, $unTransport);
@@ -70,7 +70,7 @@ Class Lieu {
 
     }
 
-    function removeTransport($unTransport) {
+    public function remove_transport($unTransport) {
 
         $index = array_search($unTransport, $this->transports);
 
@@ -82,13 +82,13 @@ Class Lieu {
 
     }
 
-    function getEvenements() : array {
+    public function get_evenements() : array {
 
         return $this->evenements;
 
     }
 
-    function addEvenement($unEvenement) {
+    public function add_evenement($unEvenement) {
 
         if (in_array($unEvenement, $this->evenements)) {
 
@@ -98,7 +98,7 @@ Class Lieu {
 
     }
 
-    function removeEvenement($unEvenement) {
+    public function remove_evenement($unEvenement) {
 
         $index = array_search($unEvenement, $this->evenements);
 

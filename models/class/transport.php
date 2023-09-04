@@ -89,10 +89,12 @@ class Transport {
 
 }
 
+$transport = new Transport(1, 3, "A", "Nation");
+
 assert($transport->get_id() == 1);
 $transport->set_id(5);
 assert($transport->get_id() == 5);
 assert($transport->get_type() == 3);
-$transport->set_type(5);
-
+$transport->set_type(6);
+assert($transport->get_id() == 6);
 ?>
