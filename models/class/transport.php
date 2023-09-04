@@ -2,7 +2,7 @@
 class Transport {
 
     public $id;
-    public $type;
+    public $type; // 1 : Bus - 2 : Métropolitain - 3 : RER (Réseau Express Régional) - 4. T ramway
     public $ligne;
     public $arret;
     public $lieux = [];
@@ -28,13 +28,13 @@ class Transport {
 
     }
 
-    function get_type(): int {
+    function get_type(): string {
 
         return $this->type;
 
     }
 
-    function set_type(int $type) {
+    function set_type(string $type) {
 
         $this->type = $type;
 
@@ -54,7 +54,7 @@ class Transport {
 
     function get_arret() {
 
-        return $this->arret:
+        return $this->arret;
 
     }
 
@@ -66,7 +66,24 @@ class Transport {
 
     function add_lieu(Lieu $lieu) {
 
-        array_push($this->lieu, $lieu)
+        if (in_array($lieu, $this->lieux)) {
+
+            array_push($this->lieu, $lieu);
+            
+        }
+
+    }
+
+    function remove_lieu(Lieu $lieu) {
+
+        $index = array_search($lieu, $this->lieu);
+
+        if ($index) {
+
+            unset($this->lieux[$index]);
+
+        }
+
     }
 
 }
