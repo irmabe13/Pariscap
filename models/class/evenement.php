@@ -1,5 +1,5 @@
 <?php
-require("lieu.php");
+require("lieu.php");;
 Class Evenement {
 
     public $id;
@@ -40,7 +40,25 @@ Class Evenement {
 
     }
 
-    public function get_prix() : float {
+    public function set_titre(string $titre) {
+
+        $this->titre = $titre;
+
+    }
+
+    public function get_description() {
+
+        return $this->description = $description;
+
+    }
+
+    public function set_description(string $description) {
+
+        $this->description =  $description;
+
+    }
+
+    get_prix() : float {
 
         return $this->prix;
 

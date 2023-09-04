@@ -88,4 +88,11 @@ class Transport {
     }
 
 }
+
+assert($transport->get_id() == 1);
+$transport->set_id(5);
+assert($transport->get_id() == 5);
+assert($transport->get_type() == 3);
+$transport->set_type(5);
+
 ?>
