@@ -48,7 +48,7 @@ Class Evenement {
 
     public function get_description() {
 
-        return $this->description = $description;
+        return $this->description;
 
     }
 
