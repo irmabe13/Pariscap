@@ -21,10 +21,10 @@
                     <span></span>
                 </button>
                 <div class="navlinks-container open" style="transition: transform 0.4s ease-out 0s;">
-                    <a href="#" aria-current="page">Accueil</a>
-                    <a href="#">Lieu</a>
-                    <a href="#">Evenement</a>
-                    <a href="#">Contact</a>
+                    <a href="?s=home" aria-current="page">Accueil</a>
+                    <a href="?s=lieu">Lieu</a>
+                    <a href="?s=evenement">Evenement</a>
+                    <a href="?s=contact">Contact</a>
                 </div>
             </div>
             </div>
@@ -37,7 +37,10 @@
         require("models/config/config.php");
         require("models/class/lieu.php");
         switch (@$_GET['s']) {
-            default:
+            case "home":
+                echo ("Page d'accueil");
+                break;
+            case "lieu":
                 $reqLieux = $db->query("SELECT * FROM lieu");
 
                 // while ($ligne = $reqLieu->fetch()) {
@@ -78,10 +81,10 @@
 
                 // var_dump($lieu);
                 break;
-        }
-
-        if (@$_GET['s'] != "home" and @$_GET['s'] != null) {
-            echo "<a href='?s=home'>Page d'accueil</a>";
+            case "evenement":
+                break;
+            case "contact":
+                break;
         }
         ?>
 
