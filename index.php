@@ -33,7 +33,7 @@
 
         <?php
 
-        require("models\config\config.php");
+        require("models/config/config.php");
         require("models/class/lieu.php");
         switch (@$_GET['s']) {
             default:
@@ -46,7 +46,7 @@
                 // $datas = $reqLieu->fetchAll(PDO::FETCH_CLASS);
                 // var_dump($datas);
                 // break;
-        }
+        
 
         if (@$_GET['s'] != "home" and @$_GET['s'] != null) {
             echo "<a href='?s=home'>Page d'accueil</a>";
