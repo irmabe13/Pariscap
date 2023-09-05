@@ -32,7 +32,7 @@
     <main>
 
         <?php
-
+        //phpinfo();
         require("models/config/config.php");
         require("models/class/lieu.php");
         switch (@$_GET['s']) {
