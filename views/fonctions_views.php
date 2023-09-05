@@ -1,7 +1,7 @@
 <?php
 function afficherMenu() {
     $current_page = $_GET['s'];
-    $menu_navigation = ['Accueil', 'Lieu', 'Evenement', 'Contact'];
+    $menu_navigation = ['Accueil', 'Lieux', 'Evenement', 'Contact'];
     echo("<div class='navlinks-container'>");
     foreach ($menu_navigation as $nav_links) {
         if ($current_page == strtolower($nav_links)) {
@@ -13,5 +13,9 @@ function afficherMenu() {
         
     }
     echo("</div>");   
+}
+function afficherPlus(int $id_lieu)
+{
+    echo "<a class='plus' href='?s=lieu_" . $id_lieu . "' aria-current='page'>+</a>";
 }
 ?>
