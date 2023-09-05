@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet" href="views\style\style.css">
-        <link rel="icon" href="" />
-    </head>
-    <body>
-        <header class="header">
-            <nav>
-                <img class="logo" src="public\images\logo_tour_eiffel.jpg">
-                <div class="main-navlinks">
-                    <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <div class="navlinks-container open" style="transition: transform 0.4s ease-out 0s;">
-                        <a href="#" aria-current="page">Accueil</a>
-                        <a href="#">Lieu</a>
-                        <a href="#">Evenement</a>
-                        <a href="#">Contact</a>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="views\style\style.css">
+    <link rel="icon" href="" />
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <img class="logo" src="public\images\logo_tour_eiffel.jpg">
+            <div class="main-navlinks">
+                <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="navlinks-container open" style="transition: transform 0.4s ease-out 0s;">
+                    <a href="#" aria-current="page">Accueil</a>
+                    <a href="#">Lieu</a>
+                    <a href="#">Evenement</a>
+                    <a href="#">Contact</a>
                 </div>
+            </div>
             </div>
         </nav>
     </header>
@@ -37,27 +38,59 @@
         require("models/class/lieu.php");
         switch (@$_GET['s']) {
             default:
-                // include 'views/home.html';
-                $reqLieu = $db->query("SELECT * FROM lieu ");
-                while ($ligne = $reqLieu->fetch()) {
-                    print("<li>" . "Lieu : " . $ligne['nom'] . "</li>");
+                $reqLieux = $db->query("SELECT * FROM lieu");
+
+                // while ($ligne = $reqLieu->fetch()) {
+                //     print("<li>" . "Lieu : " . $ligne['nom'] . "</li>");
+        
+                // }
+                $transportIds = [];
+
+                foreach ($reqLieux->fetchAll(PDO::FETCH_ASSOC) as $lieu) {
+                    $lieuId = $lieu["id"];
+                    $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
+                    echo "Le lieu : " . $lieu['nom'] . " est desservi par les lignes : ";
+
+                    foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
+                        $idTrans = $idTransport['idtransport'];
+
+                        array_push($transportIds, $idTrans);
+
+                        $reqTransports = $db->query("SELECT * FROM transport where id = $idTrans");
+                        foreach ($reqTransports->fetchAll(PDO::FETCH_ASSOC) as $transport) {
+                            $idTrans = $transport['id'];
+                            $arretTrans = $transport['arret'];
+                            echo " " . $idTrans . " à l'arrêt : " . $arretTrans;
+
+                        }
+
+                    }
+                    echo "<br>";
+
+                    // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
         
                 }
-                // $datas = $reqLieu->fetchAll(PDO::FETCH_CLASS);
-                // var_dump($datas);
-                // break;
+                $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
+                // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
+        
+
+
+
+                // var_dump($lieu);
+                break;
         }
 
-        if ($_GET['s'] != "home" and $_GET['s'] != null) {
+        if (@$_GET['s'] != "home" and @$_GET['s'] != null) {
             echo "<a href='?s=home'>Page d'accueil</a>";
         }
         ?>
 
 
 
-        </main>
-        <footer>
-        </footer>
-        <script src="views\script\script.js"></script>
-    </body>
+    </main>
+    <footer>
+    </footer>
+    <script src="views\script\script.js"></script>
+</body>
+
 </html>
