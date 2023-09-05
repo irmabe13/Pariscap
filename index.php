@@ -33,6 +33,7 @@
     <main>
 
         <?php
+
         function afficherPlus(int $id_lieu) {
             echo "<a class='plus' href='?s=lieu_" . $id_lieu . "' aria-current='page'>+</a>";
         }
