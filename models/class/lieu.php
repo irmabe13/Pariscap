@@ -73,11 +73,8 @@ Class Lieu {
     public function remove_transport($unTransport) {
 
         $index = array_search($unTransport, $this->transports);
-
         if ($index) {
-
             unset($this->transports[$unTransport]);
-
         }
 
     }
