@@ -129,8 +129,8 @@ class Lieu
     }
 }
 
-$lieu = new Lieu(6,"Tour eiffel","créé en 1889...",$transport,$evenement);
-$evenement = new Evenement(1,"Découverte de la tour Eiffel","Venez découvrir la Tour Eiffel",100,2023-09-01,2023-09-01,$lieu);
+$lieu = new Lieu(6, "Tour eiffel", "créé en 1889...", $transport, $evenement, "image");
+$evenement = new Evenement(1, "Découverte de la tour Eiffel", "Venez découvrir la Tour Eiffel", 100, 2023 - 09 - 01, 2023 - 09 - 01, $lieu);
 $transport = new Transport(1, 3, "A", "Nation");
 
 $nb_evenement = sizeof($lieu->get_evenements());
