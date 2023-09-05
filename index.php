@@ -43,7 +43,7 @@
                     break;
             }
 
-            if (@$_GET['s'] != "home" and @$_GET['s'] != null) {
+            if ($_GET['s'] != "home" and $_GET['s'] != null) {
                 echo "<a href='?s=home'>Page d'accueil</a>";
             }
             ?>
