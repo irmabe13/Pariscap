@@ -16,7 +16,7 @@ function afficherMenu()
 }
 function afficherPlus(int $id_lieu)
 {
-    echo "<a class='plus' href='?s=lieu_" . $id_lieu . "' aria-current='page'>+</a>";
+    echo "<a class='plus' href='?s=lieu&idL=" . $id_lieu . "' aria-current='page'>+</a>";
 }
 
 

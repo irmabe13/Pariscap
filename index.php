@@ -53,6 +53,17 @@
             case "event";
                 caseEventHandler($_GET['idE']);
                 break;
+                echo ("<div class=monument-card>");
+                $les_lieux = getLieuxObject();
+                foreach ($les_lieux as $lieu) {
+                    if ($lieu->get_id() == $_GET['idL']) {
+                        echo ("<h2 class='nom-monument'>" . $lieu->get_nom() . "</h2>");
+                        echo ("<img class='image-monument' src='public/images/" . $lieu->get_image() . "'></img>");
+                        echo ("<p class='description'>" . $lieu->get_description() . "</p>");
+                    }
+                }
+                echo ("</div>");
+                break;
 
         }
         ?>
