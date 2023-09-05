@@ -20,29 +20,30 @@
                     <span></span>
                     <span></span>
                 </button>
-                <div class="navlinks-container open" style="transition: transform 0.4s ease-out 0s;">
-                    <a href="?s=home" aria-current="page">Accueil</a>
-                    <a href="?s=lieu">Lieu</a>
-                    <a href="?s=evenement">Evenement</a>
-                    <a href="?s=contact">Contact</a>
-                </div>
             </div>
-            </div>
+            <?php
+            require('fonction\fonctions_views');
+            afficherMenu();
+            ?>
         </nav>
     </header>
     <main>
 
         <?php
 
+        function afficherPlus(int $id_lieu) {
+            echo "<a class='plus' href='?s=lieu_" . $id_lieu . "' aria-current='page'>+</a>";
+        }
         require("models/config/config.php");
         require("models/class/lieu.php");
         require("models/fonctions.php");
 
         switch (@$_GET['s']) {
             case "home":
-                echo ("Page d'accueil");
+                echo("Page d'accueil");
                 break;
             case "lieu":
+<<<<<<< HEAD
                 // while ($ligne = $reqLieu->fetch()) {
                 //     print("<li>" . "Lieu : " . $ligne['nom'] . "</li>");
         
@@ -55,10 +56,24 @@
 
                 $lesEvents = getEventsObjects();
                 displayEvents($lesEvents);
+=======
+                $reqLieux = $db->query("SELECT * FROM lieu");
+                echo("<div class='cards-container'>");
+                foreach ($reqLieux->fetchAll(PDO::FETCH_ASSOC) as $lieu) {
+                    echo("<div class='card_lieu'>");
+                    $lieuId = $lieu["id"];
+                    $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
+                    echo "<h2 class='nom-lieu'>" . $lieu['nom'] . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu['image'] . "'><p>" . $lieu['courte_description'] . "</p>";
+                    afficherPlus($lieu['id']);
+                    echo("</div>");
+                    /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
+                        $idTrans = $idTransport['idtransport'];
+>>>>>>> e4bc1a52dbbdc58c7911cfbafa20dec4b6991f84
 
 
 
 
+<<<<<<< HEAD
                 // foreach ($reqLieux->fetchAll(PDO::FETCH_ASSOC) as $lieu) {
                 //     $transportIds = [];
                 //     $events = [];
@@ -67,6 +82,17 @@
                 //     echo "Le lieu : " . $lieu['nom'] . " est desservi par les lignes : ";
         
                 //     $reqEvents = $db->query("SELECT * from evenement where idlieu = $lieuId ");
+=======
+                    }*/
+                    echo "<br>";
+
+                    // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
+        
+                }
+                echo("</div>");
+                $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
+                // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
+>>>>>>> e4bc1a52dbbdc58c7911cfbafa20dec4b6991f84
         
                 //     foreach ($reqEvents->fetchAll(PDO::FETCH_ASSOC) as $event) {
                 //         array_push($event, $event);
@@ -109,6 +135,8 @@
                 break;
             case "contact":
                 break;
+            case "lieu_10":
+
         }
         ?>
 

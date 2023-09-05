@@ -4,10 +4,18 @@
   margin: 0;
   padding: 0;
 }
-
+::-moz-selection { /* Code for Firefox */
+    color: #fafafa;
+    background: #e6a376;
+    }
+    
+    ::selection {
+    color: #fafafa;
+    background: #e6a376;
+    }
 body {
     font-family: "Poppins", sans-serif;
-    background: #f4f4f4;
+    background: #e2e7e6;
 }
 
 .logo {
@@ -15,6 +23,50 @@ body {
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
+    border-radius: 5px;
+}
+.cards-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 100px 50px;
+    padding: 100px 50px;
+}
+.card_lieu {
+    background: #fafafa;
+    margin: 10px;
+    padding: 20px;
+    width: 20vw;
+    min-width: 300px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+.nom-lieu {
+    font-size: 20px;
+    text-align: center;
+}
+.lieu-image {
+    display: block;
+    margin: 5px auto;
+    width: 15vw;
+    height: 10vw;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.plus {
+    font-size: 20px;
+    display: block;
+    padding: 2px;
+    margin: 10px auto;
+    width: 5vw;
+    color: #fafafa;
+    background: #e68545;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 nav {
