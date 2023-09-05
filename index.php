@@ -22,7 +22,7 @@
                 </button>
             </div>
             <?php
-            require('fonction\fonctions_views');
+            require('views\fonctions_views.php');
             afficherMenu();
             ?>
         </nav>
