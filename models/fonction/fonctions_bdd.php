@@ -50,6 +50,7 @@ function getUnLieuObject($idLieu)
         $lieuId = $lieu["id"];
         $lieuNom = $lieu["nom"];
         $lieuDescription = $lieu['description'];
+        $lieuImage = ['image'];
 
         $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
         $reqEvents = $db->query("SELECT * from evenement where idlieu = $lieuId ");
@@ -68,7 +69,7 @@ function getUnLieuObject($idLieu)
             array_push($transportsId, $idTrans);
         }
 
-        $leLieu = new Lieu($lieuId, $lieuNom, $lieuDescription, $transportsId, $events);
+        $leLieu = new Lieu($lieuId, $lieuNom, $lieuDescription, $transportsId, $events, $lieuImage);
 
     }
 
