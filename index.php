@@ -49,10 +49,6 @@
             case "contact":
                 break;
             case "lieu":
-                break;
-            case "event";
-                caseEventHandler($_GET['idE']);
-                break;
                 echo ("<div class=monument-card>");
                 $les_lieux = getLieuxObject();
                 foreach ($les_lieux as $lieu) {
@@ -64,6 +60,10 @@
                 }
                 echo ("</div>");
                 break;
+            case "event";
+                caseEventHandler($_GET['idE']);
+                break;
+
 
         }
         ?>
