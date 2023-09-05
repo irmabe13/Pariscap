@@ -1,4 +1,5 @@
 <?php
+require_once('evenement.php');
 class Lieu
 {
 
