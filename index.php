@@ -80,6 +80,8 @@
             case "contact":
                 break;
             case "lieu":
+                echo($_GET['idL']);
+                break;
 
         }
         ?>
