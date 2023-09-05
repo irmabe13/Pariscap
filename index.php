@@ -20,14 +20,10 @@
                     <span></span>
                     <span></span>
                 </button>
-                <div class="navlinks-container open" style="transition: transform 0.4s ease-out 0s;">
-                    <a href="?s=home" aria-current="page"<?php if ($_GET['s']=='home') echo 'class="current"'?>>Accueil</a>
-                    <a href="?s=lieu">Lieu</a>
-                    <a href="?s=evenement">Evenement</a>
-                    <a href="?s=contact">Contact</a>
-                </div>
             </div>
-            </div>
+            <?php
+            //afficherMenu();
+            ?>
         </nav>
     </header>
     <main>
@@ -36,10 +32,6 @@
 
         function afficherPlus(int $id_lieu) {
             echo "<a class='plus' href='?s=lieu_" . $id_lieu . "' aria-current='page'>+</a>";
-        }
-        function afficherNavMenu() {
-            //$menu_navigation = ['']
-            $cuurent_page = $_GET['s'];
         }
         require("models/config/config.php");
         require("models/class/lieu.php");
