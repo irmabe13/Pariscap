@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="views\style.css">
-    <link rel="icon" href="" />
-</head>
-
-<body>
-    <header class="header">
-        <nav>
-            <img class="logo" src="public\images\logo_tour_eiffel.jpg">
-            <div class="main-navlinks">
-                <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="navlinks-container open" style="transition: transform 0.4s ease-out 0s;">
-                    <a href="#" aria-current="page">Accueil</a>
-                    <a href="#">Lieu</a>
-                    <a href="#">Evenement</a>
-                    <a href="#">Contact</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <link rel="stylesheet" href="views\style\style.css">
+        <link rel="icon" href="" />
+    </head>
+    <body>
+        <header class="header">
+            <nav>
+                <img class="logo" src="public\images\logo_tour_eiffel.jpg">
+                <div class="main-navlinks">
+                    <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="navlinks-container open" style="transition: transform 0.4s ease-out 0s;">
+                        <a href="#" aria-current="page">Accueil</a>
+                        <a href="#">Lieu</a>
+                        <a href="#">Evenement</a>
+                        <a href="#">Contact</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -39,13 +39,13 @@
             default:
                 // include 'views/home.html';
                 $reqLieu = $db->query("SELECT * FROM lieu ");
-                // while ($ligne = $reqLieu->fetch()) {
-                //     print("<li>" . "Lieu : " . $ligne['nom'] . "</li>");
+                while ($ligne = $reqLieu->fetch()) {
+                    print("<li>" . "Lieu : " . $ligne['nom'] . "</li>");
         
-                // }
-                $datas = $reqLieu->fetchAll(PDO::FETCH_CLASS);
-                var_dump($datas);
-                break;
+                }
+                // $datas = $reqLieu->fetchAll(PDO::FETCH_CLASS);
+                // var_dump($datas);
+                // break;
         }
 
         if ($_GET['s'] != "home" and $_GET['s'] != null) {
@@ -53,10 +53,11 @@
         }
         ?>
 
-    </main>
-    <footer>
-    </footer>
-    <script src="models\script.js"></script>
-</body>
 
+
+        </main>
+        <footer>
+        </footer>
+        <script src="views\script\script.js"></script>
+    </body>
 </html>
