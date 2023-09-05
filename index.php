@@ -49,7 +49,7 @@
                 echo ("<div class='cards-container'>");
                 foreach ($lesLieux as $lieu) {
                     echo ("<div class='card_lieu'>");
-                    echo "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'><p>" . "</p>";
+                    echo "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'><p>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
                     afficherPlus($lieu->get_id());
                     echo ("</div>");
                     /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
