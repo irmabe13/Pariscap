@@ -30,15 +30,8 @@
         <main>
         
             <?php
-            /*
-            $username = "cdc";
-            $password = "cdc";
-
-            try {
-                $db = new PDO("pgsql:host=192.168.222.86;port=5432;dbname=pariscap;", $username, $password);
-            } catch (PDOException $e) {
-                print("Erreur connexion " . $e->getMessage());
-            }
+            
+            require("models\config\config.php");
             switch (@$_GET['s']) {
                 default:
                     // include 'views/home.html';
@@ -53,7 +46,6 @@
             if (@$_GET['s'] != "home" and @$_GET['s'] != null) {
                 echo "<a href='?s=home'>Page d'accueil</a>";
             }
-    */
             ?>
 
         </main>
