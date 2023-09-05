@@ -127,7 +127,7 @@ nav {
     border-bottom: 2px solid #fafafa;
 }
 .navlinks-container a:hover {
-  border-bottom: 2px solid #3a3737;
+    border-bottom: 2px solid #3a3737;
 }
 
 .nav-authentication {
