@@ -36,46 +36,70 @@
 
         require("models/config/config.php");
         require("models/class/lieu.php");
+        require("models/fonctions.php");
+
         switch (@$_GET['s']) {
             case "home":
                 echo ("Page d'accueil");
                 break;
             case "lieu":
-                $reqLieux = $db->query("SELECT * FROM lieu");
-
                 // while ($ligne = $reqLieu->fetch()) {
                 //     print("<li>" . "Lieu : " . $ligne['nom'] . "</li>");
         
                 // }
-                $transportIds = [];
+                $lesLieux = getLieuxObject();
+                displayLieux($lesLieux);
 
-                foreach ($reqLieux->fetchAll(PDO::FETCH_ASSOC) as $lieu) {
-                    $lieuId = $lieu["id"];
-                    $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
-                    echo "Le lieu : " . $lieu['nom'] . " est desservi par les lignes : ";
+                $lesTransports = getTransportsObject();
+                displayTransports($lesTransports);
 
-                    foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
-                        $idTrans = $idTransport['idtransport'];
+                $lesEvents = getEventsObjects();
+                displayEvents($lesEvents);
 
-                        array_push($transportIds, $idTrans);
 
-                        $reqTransports = $db->query("SELECT * FROM transport where id = $idTrans");
-                        foreach ($reqTransports->fetchAll(PDO::FETCH_ASSOC) as $transport) {
-                            $idTrans = $transport['id'];
-                            $arretTrans = $transport['arret'];
-                            echo " " . $idTrans . " à l'arrêt : " . $arretTrans;
 
-                        }
 
-                    }
-                    echo "<br>";
-
-                    // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
+                // foreach ($reqLieux->fetchAll(PDO::FETCH_ASSOC) as $lieu) {
+                //     $transportIds = [];
+                //     $events = [];
+                //     $lieuId = $lieu["id"];
+                //     $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
+                //     echo "Le lieu : " . $lieu['nom'] . " est desservi par les lignes : ";
         
-                }
-                $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
-                // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
+                //     $reqEvents = $db->query("SELECT * from evenement where idlieu = $lieuId ");
         
+                //     foreach ($reqEvents->fetchAll(PDO::FETCH_ASSOC) as $event) {
+                //         array_push($event, $event);
+                //     }
+        
+                //     foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
+                //         $idTrans = $idTransport['idtransport'];
+        
+                //         array_push($transportIds, $idTrans);
+        
+                //         $reqTransports = $db->query("SELECT * FROM transport where id = $idTrans");
+                //         foreach ($reqTransports->fetchAll(PDO::FETCH_ASSOC) as $transport) {
+                //             $idTrans = $transport['id'];
+                //             $arretTrans = $transport['arret'];
+                //             echo " " . $idTrans . " à l'arrêt : " . $arretTrans;
+        
+                //         }
+        
+                //     }
+                //     echo "<br>";
+        
+
+                //     $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description'], $transportIds, $events);
+        
+                //     $lieux = $lieu->get_transports();
+                //     foreach ($lieux as $lieu) {
+                //         echo "," . $lieu;
+                //     }
+                // }
+                // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
+        
+
+
 
 
 
