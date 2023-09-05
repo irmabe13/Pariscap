@@ -1,5 +1,5 @@
 <?php
-require("lieu.php");;
+require_once("lieu.php");;
 Class Evenement {
 
     public $id;

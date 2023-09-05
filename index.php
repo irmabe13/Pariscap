@@ -22,7 +22,8 @@
                 </button>
             </div>
             <?php
-            //afficherMenu();
+            require('fonction\fonctions_views');
+            afficherMenu();
             ?>
         </nav>
     </header>
@@ -37,7 +38,7 @@
         require("models/class/lieu.php");
         switch (@$_GET['s']) {
             case "home":
-                echo ("Page d'accueil");
+                echo("Page d'accueil");
                 break;
             case "lieu":
                 $reqLieux = $db->query("SELECT * FROM lieu");
