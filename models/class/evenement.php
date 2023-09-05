@@ -124,4 +124,36 @@ class Evenement
     }
 
 }
+
+// $evenement = new Evenement(1, "Découverte de la tour Eiffel", "Venez découvrir la Tour Eiffel", 100, "2023-09-01", "2023-09-01", $un_lieu);
+// $lieu = new Lieu(6, "Tour eiffel", "créé en 1889...", $transport, $evenement, "image");
+// $lieu2 = new Lieu(6, "Tour eiffel", "créé en 1889...", $transport, $evenement, "image");
+
+// assert($evenement->get_id() == 1);
+// $evenement->set_id(3);
+// assert($evenement->get_id() == 3);
+
+// assert($evenement->get_titre() == "Découverte de la tour Eiffel");
+// $evenement->set_titre("tournage clip pnl");
+// assert($evenement->get_titre() == "tournage clip pnl");
+
+// assert($evenement->get_description() == "Venez découvrir la Tour Eiffel");
+// $evenement->set_description("venez participer au clip");
+// assert($evenement->get_description() == "venez participer au clip");
+
+// assert($evenement->get_prix() == 100);
+// $evenement->set_prix(50);
+// assert($evenement->get_prix() == 50);
+
+// assert($evenement->get_date_debut() == "2023-09-01");
+// $evenement->set_date_debut("2023-03-13");
+// assert($evenement->get_date_debut() == "2023-05-13");
+
+// assert($evenement->get_date_fin() == "2023-09-01");
+// $evenement->set_date_fin("2023-05-14");
+// assert($evenement->get_date_fin() == "2023-05-14");
+
+// assert($evenement->get_lieu() == $lieu);
+// $evenement->set_lieu($lieu2);
+// assert($evenement->get_lieu() == $lieu2);
 ?>
