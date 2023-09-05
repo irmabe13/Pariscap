@@ -53,7 +53,7 @@ class Transport
 
     }
 
-    public function set_ligne(int $ligne)
+    public function set_ligne(string $ligne)
     {
 
         $this->ligne = $ligne;
