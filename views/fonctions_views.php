@@ -1,7 +1,12 @@
 <?php
 function afficherMenu()
 {
-    $current_page = $_GET['s'];
+    if (isset($_GET['s'])) {
+        $current_page = $_GET['s'];
+    } else {
+        $current_page = "";
+    }
+    ;
     $menu_navigation = ['Accueil', 'Lieux', 'Evenement', 'Contact'];
     echo ("<div class='navlinks-container'>");
     foreach ($menu_navigation as $nav_links) {
