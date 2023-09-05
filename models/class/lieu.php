@@ -1,5 +1,6 @@
 <?php
-Class Lieu {
+class Lieu
+{
 
     public $id;
     public $nom;
@@ -8,7 +9,8 @@ Class Lieu {
     public $evenements;
 
 
-    public function __construct($id, $nom, $description, $transports, $evenements) {
+    public function __construct($id, $nom, $description, $transports, $evenements)
+    {
 
         $this->id = $id;
         $this->nom = $nom;
@@ -18,49 +20,57 @@ Class Lieu {
 
     }
 
-    public function get_id(): int {
+    public function get_id(): int
+    {
 
         return $this->id;
 
     }
 
-    public function set_id($unId){
+    public function set_id($unId)
+    {
 
         $this->id = $unId;
 
     }
 
-    public function get_nom(): string {
+    public function get_nom(): string
+    {
 
         return $this->nom;
 
     }
 
-    public function set_nom($unNom) {
+    public function set_nom($unNom)
+    {
 
         $this->nom = $unNom;
 
     }
 
-    public function get_description(): string {
+    public function get_description(): string
+    {
 
         return $this->description;
 
     }
 
-    public function set_description($uneDescription) {
+    public function set_description($uneDescription)
+    {
 
         $this->description = $uneDescription;
 
     }
 
-    public function get_transports() : array {
+    public function get_transports(): array
+    {
 
         return $this->transports;
 
     }
 
-    public function add_transport($unTransport) {
+    public function add_transport($unTransport)
+    {
         if (in_array($unTransport, $this->transports)) {
 
             array_push($this->transports, $unTransport);
@@ -69,7 +79,8 @@ Class Lieu {
 
     }
 
-    public function remove_transport($unTransport) {
+    public function remove_transport($unTransport)
+    {
 
         $index = array_search($unTransport, $this->transports);
         if ($index) {
@@ -78,13 +89,15 @@ Class Lieu {
 
     }
 
-    public function get_evenements() : array {
+    public function get_evenements(): array
+    {
 
         return $this->evenements;
 
     }
 
-    public function add_evenement($unEvenement) {
+    public function add_evenement($unEvenement)
+    {
 
         if (in_array($unEvenement, $this->evenements)) {
 
@@ -94,7 +107,8 @@ Class Lieu {
 
     }
 
-    public function remove_evenement($unEvenement) {
+    public function remove_evenement($unEvenement)
+    {
 
         $index = array_search($unEvenement, $this->evenements);
 

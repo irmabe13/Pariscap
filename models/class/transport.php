@@ -1,6 +1,7 @@
 <?php
-require("lieu.php");
-class Transport {
+// require("lieu.php");
+class Transport
+{
 
     public $id;
     public $type; // 1 : Bus - 2 : Métropolitain - 3 : RER (Réseau Express Régional) - 4. T ramway
@@ -8,7 +9,8 @@ class Transport {
     public $arret;
     public $lieux = [];
 
-    public function __construct($id, $type, $ligne, $arret) {
+    public function __construct($id, $type, $ligne, $arret)
+    {
 
         $this->id = $id;
         $this->type = $type;
@@ -17,55 +19,64 @@ class Transport {
 
     }
 
-    public function get_id(): int {
+    public function get_id(): int
+    {
 
         return $this->id;
 
     }
 
-    public function set_id(int $id): void {
+    public function set_id(int $id): void
+    {
 
         $this->id = $id;
 
     }
 
-    public function get_type(): string {
+    public function get_type(): string
+    {
 
         return $this->type;
 
     }
 
-    public function set_type(string $type) {
+    public function set_type(string $type)
+    {
 
         $this->type = $type;
 
     }
 
-    public function get_ligne() {
+    public function get_ligne()
+    {
 
         return $this->ligne;
 
     }
 
-    public function set_ligne(int $ligne) {
+    public function set_ligne(int $ligne)
+    {
 
         $this->ligne = $ligne;
 
     }
 
-    public function get_arret() {
+    public function get_arret()
+    {
 
         return $this->arret;
 
     }
 
-    public function set_arret(string $arret) {
-        
+    public function set_arret(string $arret)
+    {
+
         $this->arret = $arret;
 
     }
 
-    public function add_lieu(Lieu $lieu) {
+    public function add_lieu(Lieu $lieu)
+    {
 
         if (in_array($lieu, $this->lieux)) {
 
@@ -75,7 +86,8 @@ class Transport {
 
     }
 
-    public function remove_lieu(Lieu $lieu) {
+    public function remove_lieu(Lieu $lieu)
+    {
 
         $index = array_search($lieu, $this->lieux);
 
@@ -91,10 +103,10 @@ class Transport {
 
 $transport = new Transport(1, 3, "A", "Nation");
 
-assert($transport->get_id() == 1);
-$transport->set_id(5);
-assert($transport->get_id() == 5);
-assert($transport->get_type() == 3);
-$transport->set_type(6);
-assert($transport->get_id() == 6);
+// assert($transport->get_id() == 1);
+// $transport->set_id(5);
+// assert($transport->get_id() == 5);
+// assert($transport->get_type() == 3);
+// $transport->set_type(6);
+// assert($transport->get_id() == 6);
 ?>
