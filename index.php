@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
-        <link rel="stylesheet" href="views\style.css">
+        <link rel="stylesheet" href="views\style\style.css">
         <link rel="icon" href="" />
     </head>
     <body>
@@ -51,6 +51,6 @@
         </main>
         <footer>
         </footer>
-        <script src="models\script.js"></script>
+        <script src="views\script\script.js"></script>
     </body>
 </html>
