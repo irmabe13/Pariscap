@@ -1,14 +1,11 @@
 <?php
-$servername = "pariscap";
 $username = "cdc";
 $password = "cdc";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+try {
+    $db = new PDO("pgsql:host=192.168.222.86;port=5432;dbname=pariscap;", $username, $password);
+} catch (PDOException $e) {
+    print("Erreur connexion " . $e->getMessage());
 }
-echo "Connected successfully";
-?> 
+
+?>
