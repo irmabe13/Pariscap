@@ -50,6 +50,8 @@ body {
 .lieu-image {
     display: block;
     margin: 5px auto;
+    min-width: 250px;
+    min-height: 150px;
     width: 15vw;
     height: 10vw;
     border-radius: 5px;
@@ -128,7 +130,7 @@ nav {
 
 .navlinks-container a {
     margin: 0 10px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     text-decoration: none;
     color: #000000;

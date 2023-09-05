@@ -33,8 +33,6 @@
         require("models/config/config.php");
         require("models/class/lieu.php");
         require("models/fonction/fonctions_bdd.php");
-        require("models/fonction/fonctions.php");
-
 
         switch (@$_GET['s']) {
             case "home":
@@ -49,16 +47,7 @@
             case "contact":
                 break;
             case "lieu":
-                echo ("<div class=monument-card>");
-                $les_lieux = getLieuxObject();
-                foreach ($les_lieux as $lieu) {
-                    if ($lieu->get_id() == $_GET['idL']) {
-                        echo ("<h2 class='nom-monument'>" . $lieu->get_nom() . "</h2>");
-                        echo ("<img class='image-monument' src='public/images/" . $lieu->get_image() . "'></img>");
-                        echo ("<p class='description'>" . $lieu->get_description() . "</p>");
-                    }
-                }
-                echo ("</div>");
+                displayLieu($_GET['idL']);
                 break;
             case "event";
                 caseEventHandler($_GET['idE']);
