@@ -33,7 +33,9 @@
     <main>
 
         <?php
-
+        function afficherPlus(int $id_lieu) {
+            echo "<a class='plus' href='?s=lieu_" . $id_lieu . "' aria-current='page'>+</a>";
+        }
         require("models/config/config.php");
         require("models/class/lieu.php");
         switch (@$_GET['s']) {
@@ -42,19 +44,15 @@
                 break;
             case "lieu":
                 $reqLieux = $db->query("SELECT * FROM lieu");
-
-                // while ($ligne = $reqLieu->fetch()) {
-                //     print("<li>" . "Lieu : " . $ligne['nom'] . "</li>");
-        
-                // }
-                $transportIds = [];
-
+                echo("<div class='cards-container'>");
                 foreach ($reqLieux->fetchAll(PDO::FETCH_ASSOC) as $lieu) {
+                    echo("<div class='card_lieu'>");
                     $lieuId = $lieu["id"];
                     $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
-                    echo "Le lieu : " . $lieu['nom'] . " est desservi par les lignes : ";
-
-                    foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
+                    echo "<h2 class='nom-lieu'>" . $lieu['nom'] . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu['image'] . "'><p>" . $lieu['courte_description'] . "</p>";
+                    afficherPlus($lieu['id']);
+                    echo("</div>");
+                    /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
                         $idTrans = $idTransport['idtransport'];
 
                         array_push($transportIds, $idTrans);
@@ -67,12 +65,13 @@
 
                         }
 
-                    }
+                    }*/
                     echo "<br>";
 
                     // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
         
                 }
+                echo("</div>");
                 $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
                 // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
         
@@ -85,6 +84,8 @@
                 break;
             case "contact":
                 break;
+            case "lieu_10":
+
         }
         ?>
 
