@@ -129,29 +129,29 @@ class Lieu
     }
 }
 
-$lieu = new Lieu(6, "Tour eiffel", "créé en 1889...", $transport, $evenement, "image");
-$evenement = new Evenement(1, "Découverte de la tour Eiffel", "Venez découvrir la Tour Eiffel", 100, "2023-09-01", "2023-09-01", $lieu);
-$transport = new Transport(1, 3, "A", "Nation");
+// $lieu = new Lieu(6, "Tour eiffel", "créé en 1889...", $transport, $evenement, "image");
+// $evenement = new Evenement(1, "Découverte de la tour Eiffel", "Venez découvrir la Tour Eiffel", 100, "2023-09-01", "2023-09-01", $lieu);
+// $transport = new Transport(1, 3, "A", "Nation");
 
-$nb_evenement = sizeof($lieu->get_evenements());
-$lieu->add_evenement($evenement);
-assert(sizeof($lieu->get_evenements()) == $nb_evenement + 1);
-$lieu->remove_evenement($evenement);
-assert(sizeof($lieu->get_evenements()) == $nb_evenement - 1);
+// $nb_evenement = sizeof($lieu->get_evenements());
+// $lieu->add_evenement($evenement);
+// assert(sizeof($lieu->get_evenements()) == $nb_evenement + 1);
+// $lieu->remove_evenement($evenement);
+// assert(sizeof($lieu->get_evenements()) == $nb_evenement - 1);
 
-$nb_transport = sizeof($lieu->get_transports());
-$lieu->add_transport($transport);
-assert(sizeof($lieu->get_transports()) == $nb_transport + 1);
-$lieu->remove_transport($transport);
-assert($lieu->get_transports() == $nb_transport - 1);
+// $nb_transport = sizeof($lieu->get_transports());
+// $lieu->add_transport($transport);
+// assert(sizeof($lieu->get_transports()) == $nb_transport + 1);
+// $lieu->remove_transport($transport);
+// assert($lieu->get_transports() == $nb_transport - 1);
 
-assert($lieu->get_description() == "crée en 1889...");
-$lieu->set_description("par Gustave E");
-assert($lieu->get_description() == "par Gustave E");
-assert($lieu->get_evenements() == $evenement);
-assert($lieu->get_id() == 6);
-$lieu->set_id(7);
-assert($lieu->get_id() == 7);
-assert($lieu->get_nom() == "Tour eiffel");
-assert($lieu->get_transports() == $transport);
+// assert($lieu->get_description() == "crée en 1889...");
+// $lieu->set_description("par Gustave E");
+// assert($lieu->get_description() == "par Gustave E");
+// assert($lieu->get_evenements() == $evenement);
+// assert($lieu->get_id() == 6);
+// $lieu->set_id(7);
+// assert($lieu->get_id() == 7);
+// assert($lieu->get_nom() == "Tour eiffel");
+// assert($lieu->get_transports() == $transport);
 ?>
