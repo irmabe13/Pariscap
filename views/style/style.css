@@ -23,7 +23,6 @@ body {
     height: 70px;
     border-radius: 50%;
     cursor: pointer;
-    border: 1px solid #353333;
     border-radius: 100%;
 }
 .cards-container {
@@ -71,6 +70,23 @@ body {
     text-align: center;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.monument-card {
+    width: 80vw;
+    margin: 20px auto;
+    padding: 10px;
+    background: #fafafa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+.nom-monument {
+    text-align: center;
+}
+.image-monument {
+    display: block;
+    margin: 10px auto;
+}
+.description {
+    text-align: center;
 }
 nav {
     position: relative;
