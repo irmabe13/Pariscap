@@ -31,25 +31,27 @@
 
         <?php
 
-        function afficherPlus(int $id_lieu) {
+        function afficherPlus(int $id_lieu)
+        {
             echo "<a class='plus' href='?s=lieu_" . $id_lieu . "' aria-current='page'>+</a>";
         }
         require("models/config/config.php");
         require("models/class/lieu.php");
+        require("models/fonction/fonctions_bdd.php");
+
         switch (@$_GET['s']) {
             case "home":
-                echo("Page d'accueil");
+                echo ("Page d'accueil");
                 break;
             case "lieu":
-                $reqLieux = $db->query("SELECT * FROM lieu");
-                echo("<div class='cards-container'>");
-                foreach ($reqLieux->fetchAll(PDO::FETCH_ASSOC) as $lieu) {
-                    echo("<div class='card_lieu'>");
-                    $lieuId = $lieu["id"];
-                    $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
-                    echo "<h2 class='nom-lieu'>" . $lieu['nom'] . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu['image'] . "'><p>" . $lieu['courte_description'] . "</p>";
-                    afficherPlus($lieu['id']);
-                    echo("</div>");
+                $lesLieux = getLieuxObject();
+
+                echo ("<div class='cards-container'>");
+                foreach ($lesLieux as $lieu) {
+                    echo ("<div class='card_lieu'>");
+                    echo "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'><p>" . "</p>";
+                    afficherPlus($lieu->get_id());
+                    echo ("</div>");
                     /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
                         $idTrans = $idTransport['idtransport'];
 
@@ -69,7 +71,7 @@
                     // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
         
                 }
-                echo("</div>");
+                echo ("</div>");
                 $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
                 // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
         
