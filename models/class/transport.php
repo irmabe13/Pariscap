@@ -1,5 +1,5 @@
 <?php
-require("lieux.php");
+require("lieu.php");
 class Transport {
 
     public $id;
@@ -69,7 +69,7 @@ class Transport {
 
         if (in_array($lieu, $this->lieux)) {
 
-            array_push($this->lieu, $lieu);
+            array_push($this->lieux, $lieu);
 
         }
 
@@ -77,7 +77,7 @@ class Transport {
 
     public function remove_lieu(Lieu $lieu) {
 
-        $index = array_search($lieu, $this->lieu);
+        $index = array_search($lieu, $this->lieux);
 
         if ($index) {
 
