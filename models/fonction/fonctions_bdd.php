@@ -77,16 +77,16 @@ function getUnLieuObject($idLieu)
 }
 
 
-function displayLieux(array $lesLieux)
-{
-    require("models/config/config.php");
-    echo "<h2> Les Lieux </h2>";
+// function displayLieux(array $lesLieux)
+// {
+//     require("models/config/config.php");
+//     echo "<h2> Les Lieux </h2>";
 
-    foreach ($lesLieux as $lieu) {
+//     foreach ($lesLieux as $lieu) {
 
-        echo "<b> Nom du Lieu : </b> " . $lieu->get_nom() . "<br>" . " <b> Description du lieu : </b>" . $lieu->get_description() . "<br>" . "<br>";
-    }
-}
+//         echo "<b> Nom du Lieu : </b> " . $lieu->get_nom() . "<br>" . " <b> Description du lieu : </b>" . $lieu->get_description() . "<br>" . "<br>";
+//     }
+// }
 
 function getTransportsObject()
 {
@@ -125,22 +125,21 @@ function getTransportsObject()
 }
 
 
-function displayTransports(array $lesTransports)
-{
-    echo "<h2> Les transports </h2>";
+// function displayTransports(array $lesTransports)
+// {
+//     echo "<h2> Les transports </h2>";
 
-    foreach ($lesTransports as $transport) {
+//     foreach ($lesTransports as $transport) {
 
-        echo " <b> Nom de la ligne : </b> " . $transport->get_arret() . " <b> Numéro de la ligne : </b> " . $transport->get_ligne() . "<br>";
-    }
-}
+//         echo " <b> Nom de la ligne : </b> " . $transport->get_arret() . " <b> Numéro de la ligne : </b> " . $transport->get_ligne() . "<br>";
+//     }
+// }
 
 
 
 function getEventsObjects()
 {
     require("models/config/config.php");
-    require("models/class/evenement.php");
 
     $reqEvents = $db->query("SELECT * FROM evenement");
     $lesEvents = [];
@@ -161,12 +160,12 @@ function getEventsObjects()
     return $lesEvents;
 }
 
-function displayEvents(array $lesEvents)
-{
-    foreach ($lesEvents as $event) {
-        echo "<h2> Events </h2>";
-        echo " <b> Nom de l'evenement : </b> " . $event->get_titre() . " <b> Description : </b> " . $event->get_description();
-    }
-}
+// function displayEvents(array $lesEvents)
+// {
+//     foreach ($lesEvents as $event) {
+//         echo "<h2> Events </h2>";
+//         echo " <b> Nom de l'evenement : </b> " . $event->get_titre() . " <b> Description : </b> " . $event->get_description();
+//     }
+// }
 
 ?>
