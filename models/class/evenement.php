@@ -54,7 +54,7 @@ Class Evenement {
 
     public function set_description(string $description) {
 
-        $this->description =  $description;
+        $this->description = $description;
 
     }
 
