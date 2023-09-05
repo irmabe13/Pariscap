@@ -20,38 +20,39 @@
                     <span></span>
                     <span></span>
                 </button>
-                <div class="navlinks-container open" style="transition: transform 0.4s ease-out 0s;">
-                    <a href="#" aria-current="page">Accueil</a>
-                    <a href="#">Lieu</a>
-                    <a href="#">Evenement</a>
-                    <a href="#">Contact</a>
-                </div>
             </div>
-            </div>
+            <?php
+            require('views\fonctions_views.php');
+            afficherMenu();
+            ?>
         </nav>
     </header>
     <main>
 
         <?php
 
+        function afficherPlus(int $id_lieu)
+        {
+            echo "<a class='plus' href='?s=lieu_" . $id_lieu . "' aria-current='page'>+</a>";
+        }
         require("models/config/config.php");
         require("models/class/lieu.php");
+        require("models/fonction/fonctions_bdd.php");
+
         switch (@$_GET['s']) {
-            default:
-                $reqLieux = $db->query("SELECT * FROM lieu");
+            case "home":
+                echo ("Page d'accueil");
+                break;
+            case "lieu":
+                $lesLieux = getLieuxObject();
 
-                // while ($ligne = $reqLieu->fetch()) {
-                //     print("<li>" . "Lieu : " . $ligne['nom'] . "</li>");
-        
-                // }
-                $transportIds = [];
-
-                foreach ($reqLieux->fetchAll(PDO::FETCH_ASSOC) as $lieu) {
-                    $lieuId = $lieu["id"];
-                    $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
-                    echo "Le lieu : " . $lieu['nom'] . " est desservi par les lignes : ";
-
-                    foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
+                echo ("<div class='cards-container'>");
+                foreach ($lesLieux as $lieu) {
+                    echo ("<div class='card_lieu'>");
+                    echo "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'><p>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
+                    afficherPlus($lieu->get_id());
+                    echo ("</div>");
+                    /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
                         $idTrans = $idTransport['idtransport'];
 
                         array_push($transportIds, $idTrans);
@@ -64,12 +65,13 @@
 
                         }
 
-                    }
+                    }*/
                     echo "<br>";
 
                     // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
         
                 }
+                echo ("</div>");
                 $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
                 // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
         
@@ -78,10 +80,12 @@
 
                 // var_dump($lieu);
                 break;
-        }
+            case "evenement":
+                break;
+            case "contact":
+                break;
+            case "lieu_10":
 
-        if (@$_GET['s'] != "home" and @$_GET['s'] != null) {
-            echo "<a href='?s=home'>Page d'accueil</a>";
         }
         ?>
 

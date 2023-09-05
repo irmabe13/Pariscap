@@ -1,5 +1,4 @@
 <?php
-// require("lieu.php");
 class Transport
 {
 

@@ -1,4 +1,5 @@
 <?php
+require_once('evenement.php');
 class Lieu
 {
 
@@ -7,9 +8,9 @@ class Lieu
     public $description;
     public $transports;
     public $evenements;
+    public $image;
 
-
-    public function __construct($id, $nom, $description, $transports, $evenements)
+    public function __construct($id, $nom, $description, $transports, $evenements, $image)
     {
 
         $this->id = $id;
@@ -17,6 +18,7 @@ class Lieu
         $this->description = $description;
         $this->transports = $transports;
         $this->evenements = $evenements;
+        $this->image = $image;
 
     }
 
@@ -32,6 +34,12 @@ class Lieu
 
         $this->id = $unId;
 
+    }
+
+
+    public function get_image(): string
+    {
+        return $this->image;
     }
 
     public function get_nom(): string
