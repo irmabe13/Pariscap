@@ -52,12 +52,15 @@ body {
     margin: 5px auto;
     width: 15vw;
     height: 10vw;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 .plus {
+    font-size: 20px;
     display: block;
+    padding: 2px;
     margin: 10px auto;
     width: 5vw;
-    padding: 5px;
     color: #fafafa;
     background: #e68545;
     text-decoration: none;
