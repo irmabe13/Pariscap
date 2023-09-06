@@ -33,10 +33,15 @@
         require("models/config/config.php");
         require("models/class/lieu.php");
         require("models/fonction/fonctions_bdd.php");
-
+        
         switch (@$_GET['s']) {
+            default:
+                include "views/accueil.php";
+                ?><script>const event_html = <?php echo(json_encode(eventsHTML("card-event"))); ?></script><?php
+                break;
             case "accueil":
                 include "views/accueil.php";
+                ?><script>const event_html = <?php echo(json_encode(eventsHTML("card-event"))); ?></script><?php
                 break;
             case "lieux":
                 displayLieux();
@@ -71,8 +76,6 @@
             echo "let lieuArray = " . $js_array_lieux . ";\n";
             echo "let eventsArray = " . $js_array_events . ";\n";
             ?>
-
-
         </script>
 
     </main>
