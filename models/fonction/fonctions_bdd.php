@@ -88,7 +88,7 @@ function getUnLieuObject($idLieu)
 //     }
 // }
 
-function getTransportsObject()
+function getTransportsObject(): array
 {
     require("models/config/config.php");
     require("models/class/transport.php");
@@ -100,26 +100,13 @@ function getTransportsObject()
         $transportId = $transport['id'];
         $transportLigne = $transport['ligne'];
         $transportArret = $transport['arret'];
-        switch ($transport['type']) {
-            case 1:
-                $transportType = "bus";
-                break;
-            case 2:
-                $transportType = "metro";
-                break;
-            case 3:
-                $transportType = "rer";
-                break;
-            case 4:
-                $transportType = "tram";
-                break;
+        $array_transports = ["bus", "metro", "rer", "tram"];
+        $transportType = $array_transports[$transport['type'] - 1];
 
-            default:
-                break;
-        }
         array_push($lesTransports, new Transport($transportId, $transportType, $transportLigne, $transportArret));
 
     }
+
     return $lesTransports;
 
 }
@@ -167,5 +154,13 @@ function getEventsObjects()
 //         echo " <b> Nom de l'evenement : </b> " . $event->get_titre() . " <b> Description : </b> " . $event->get_description();
 //     }
 // }
-
+function get_transports($id_lieu, $transports) {
+    require("models/config/config.php");
+    $reqDesserte = "SELECT idtransport FROM desservir WHERE idlieu = $id_lieu";
+    $dessertes = $db->query($reqDesserte);
+    print_r($transports);
+    foreach ($dessertes->fetchAll() as $desserte) {
+        echo ($desserte['idtransport']);
+    }
+}
 ?>

@@ -50,6 +50,8 @@ body {
 .lieu-image {
     display: block;
     margin: 5px auto;
+    min-width: 250px;
+    min-height: 150px;
     width: 15vw;
     height: 10vw;
     border-radius: 5px;
@@ -57,6 +59,14 @@ body {
 }
 .courte-description {
     text-align: center;
+}
+.logo-ratp {
+    width: 50px;
+    height: 50px;
+}
+.numero-ligne {
+    width: 50px;
+    height: 50px;
 }
 .plus {
     font-size: 20px;
@@ -128,7 +138,7 @@ nav {
 
 .navlinks-container a {
     margin: 0 10px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     text-decoration: none;
     color: #000000;
@@ -255,6 +265,7 @@ nav {
         height: 100vh;
         padding: 15px 50px 15px 20px;
         border-right: 1px solid #c5c5c6;
+        z-index: 1000;
     }
     .open {
         transform: translate(0%);
