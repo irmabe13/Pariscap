@@ -49,6 +49,8 @@
                 break;
             case "lieu":
                 displayLieu($_GET['idL']);
+            case "search":
+                include "views/search.php";
 
                 break;
             case "event";
@@ -60,11 +62,14 @@
 
         <script type="text/javascript">
             <?php
-            $php_array = Lieux_HTML();
+            $php_array_lieux = getLieuxObject();
+            $php_array_events = getEventsObjects();
 
-            $js_array = json_encode($php_array);
-            echo "let lieuArray = " . $js_array . ";\n"
-                ?>
+            $js_array_lieux = json_encode($php_array_lieux);
+            $js_array_events = json_encode($php_array_events);
+            echo "let lieuArray = " . $js_array_lieux . ";\n";
+            echo "let eventsArray = " . $js_array_events . ";\n";
+            ?>
 
 
         </script>

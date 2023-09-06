@@ -8,8 +8,8 @@ function afficherMenu()
     }
     ;
     $menu_navigation = ['Accueil', 'Lieux', 'Evenement', 'Contact'];
-    echo('<div>');
-    echo("<div class='navlinks-container'>");
+    echo ('<div>');
+    echo ("<div class='navlinks-container'>");
     foreach ($menu_navigation as $nav_links) {
         if ($current_page == strtolower($nav_links)) {
             echo ("<a href='?s=" . strtolower($nav_links) . "' aria-current='page'><strong>" . $nav_links . "</strong></a>");
@@ -18,8 +18,8 @@ function afficherMenu()
         }
 
     }
-    echo("</div>");
-    echo("</div>");
+    echo ("</div>");
+    echo ("</div>");
 
 }
 function afficherPlus(int $id_lieu): string
@@ -49,8 +49,8 @@ function Lieux_HTML()
         $lieux_html .= afficherPlus($lieu->get_id());
         $lieux_html .= "</div>";
         $lieux_html .= "<div class='card-lieu-back'>";
-        //$lieux_html .= "<p class='courte-description'>" . $lieu->get_courtedescription() . "</p>";
-        $lieux_html .= "<p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
+        $lieux_html .= "<p class='courte-description'>" . $lieu->get_courtedescription() . "</p>";
+        //$lieux_html .= "<p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
         $lieux_html .= afficherPlus($lieu->get_id());
         $lieux_html .= "</div>";
         $lieux_html .= "</div>";
@@ -79,15 +79,12 @@ function displayEvents()
     require("models/config/config.php");
     $lesEvents = getEventsObjects();
 
-
     echo ("<div class='events-container'>");
     foreach ($lesEvents as $event) {
         echo ("<div class='card-event'>");
-        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
-        echo(afficherPlusEvent($event->get_id()));
+        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . $event->courte_description() . "</p>";
+        echo (afficherPlusEvent($event->get_id()));
         echo ("</div>");
-        echo "<br>";
-
     }
     echo ("</div>");
 }
@@ -111,17 +108,17 @@ function displayLieu(int $id_lieu)
             foreach ($dessertes->fetchAll() as $desserte) {
                 array_push($les_dessertes, $desserte['idtransport']);
             }
-            echo("<div class='box-transports'>");
+            echo ("<div class='box-transports'>");
             foreach ($les_transports as $transport) {
                 if (in_array($transport->get_id(), $les_dessertes)) {
-                    echo("<div class='transports'>");
+                    echo ("<div class='transports'>");
                     echo ("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
                     echo ("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
                     echo ($transport->get_arret());
-                    echo("</div>");
+                    echo ("</div>");
                 }
             }
-            echo("</div>");
+            echo ("</div>");
 
             foreach ($lesEvents as $event) {
                 echo "<br>";
