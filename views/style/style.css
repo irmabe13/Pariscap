@@ -265,6 +265,7 @@ nav {
         height: 100vh;
         padding: 15px 50px 15px 20px;
         border-right: 1px solid #c5c5c6;
+        z-index: 1000;
     }
     .open {
         transform: translate(0%);

@@ -103,10 +103,9 @@ function displayLieu(int $id_lieu) {
             }
             foreach ($les_transports as $transport) {
                 if (in_array($transport->get_id(), $les_dessertes)) {
-                    if ($transport->get_type() == "metro") {
-                        echo("<img class='logo-ratp' src='public/images/metro.png'>");
-                    }
-                    echo("<img class='numero-ligne' src='public/images/ligne_" . $transport->get_ligne() . ".jpg'>");
+                    echo("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
+                    echo("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
+                    echo($transport->get_arret());
                 }
             }
         }
