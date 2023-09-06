@@ -88,7 +88,7 @@ function getUnLieuObject($idLieu)
 //     }
 // }
 
-function getTransportsObject()
+function getTransportsObject(): array
 {
     require("models/config/config.php");
     require("models/class/transport.php");

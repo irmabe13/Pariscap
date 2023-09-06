@@ -86,19 +86,28 @@ function displayEvents()
 }
 
 function displayLieu(int $id_lieu) {
+    require("models/config/config.php");
     echo ("<div class=monument-card>");
+    $les_transports = getTransportsObject();
     $les_lieux = getLieuxObject();
     foreach ($les_lieux as $lieu) {
         if ($lieu->get_id() == $id_lieu) {
             echo ("<h2 class='nom-monument'>" . $lieu->get_nom() . "</h2>");
             echo ("<img class='image-monument' src='public/images/" . $lieu->get_image() . "'></img>");
             echo ("<p class='description'>" . $lieu->get_description() . "</p>");
-            require("models/config/config.php");
             $reqDesserte = "SELECT idtransport FROM desservir WHERE idlieu = $id_lieu";
             $dessertes = $db->query($reqDesserte);
-            $transports = getTransportsObject();
+            $les_dessertes = [];
             foreach ($dessertes->fetchAll() as $desserte) {
-                echo ($desserte['idtransport']);
+                array_push($les_dessertes, $desserte['idtransport']);
+            }
+            foreach ($les_transports as $transport) {
+                if (in_array($transport->get_id(), $les_dessertes)) {
+                    if ($transport->get_type() == "metro") {
+                        echo("<img class='logo-ratp' src='public/images/metro.png'>");
+                    }
+                    echo("<img class='numero-ligne' src='public/images/ligne_" . $transport->get_ligne() . ".jpg'>");
+                }
             }
         }
     }
