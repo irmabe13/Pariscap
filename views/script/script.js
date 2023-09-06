@@ -140,10 +140,13 @@ inputSearch.addEventListener("input", () => {
 searchChoice.addEventListener("input", () => {
   if (searchChoice.value == "lieu") {
     displayLieux();
+    inputSearch.placeholder = "Rechercher un lieu";
   } else if (searchChoice.value == "event") {
     displayEvents();
+    inputSearch.placeholder = "Rechercher un event";
   } else if (searchChoice.value == "both") {
     displayBoth();
+    inputSearch.placeholder = "Rechercher un lieu/evenement";
   }
 });
 
