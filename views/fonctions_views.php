@@ -8,7 +8,6 @@ function afficherMenu()
     }
     ;
     $menu_navigation = ['Accueil', 'Lieux', 'Evenement', 'Contact'];
-    echo("<div class='header-nav'>");
     echo('<div>');
     echo("<div class='navlinks-container'>");
     foreach ($menu_navigation as $nav_links) {
@@ -19,9 +18,6 @@ function afficherMenu()
         }
 
     }
-    echo('</div>');
-    echo("<div>");
-    echo "<input class='search' type='search' id='search-bar'>";
     echo("</div>");
     echo("</div>");
 
@@ -50,9 +46,10 @@ function Lieux_HTML()
         $lieux_html .= "<div class='card-lieu-inner'>";
         $lieux_html .= "<div class='card-lieu-front'>";
         $lieux_html .= "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'>";
-        //afficherPlus($lieu->get_id());
+        $lieux_html .= afficherPlus($lieu->get_id());
         $lieux_html .= "</div>";
         $lieux_html .= "<div class='card-lieu-back'>";
+        //$lieux_html .= "<p class='courte-description'>" . $lieu->get_courtedescription() . "</p>";
         $lieux_html .= "<p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
         $lieux_html .= afficherPlus($lieu->get_id());
         $lieux_html .= "</div>";
@@ -84,9 +81,9 @@ function displayEvents()
 
     echo ("<div class='events-container'>");
     foreach ($lesEvents as $event) {
-        echo ("<div class='card_event'>");
+        echo ("<div class='card-event'>");
         echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . $event->courte_description() . "</p>";
-        afficherPlusEvent($event->get_id());
+        echo(afficherPlusEvent($event->get_id()));
         echo ("</div>");
     }
     echo ("</div>");
