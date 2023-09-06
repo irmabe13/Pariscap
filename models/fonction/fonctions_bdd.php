@@ -147,6 +147,30 @@ function getEventsObjects()
     return $lesEvents;
 }
 
+
+function getEventsObjectsFromLieu(int $idLieu)
+{
+    require("models/config/config.php");
+
+    $reqEvents = $db->query("SELECT * FROM evenement WHERE idlieu = $idLieu ");
+    $lesEvents = [];
+
+    foreach ($reqEvents->fetchAll() as $event) {
+        $eventId = $event['id'];
+        $eventTitre = $event['titre'];
+        $eventDescription = $event['description'];
+        $eventPrix = $event['prix'];
+        $eventDateDeb = $event['datedebut'];
+        $eventDateFin = $event['datefin'];
+        $idLieu = $event['idlieu'];
+        $eventLieu = getUnLieuObject($idLieu);
+
+
+        array_push($lesEvents, new Evenement($eventId, $eventTitre, $eventDescription, $eventPrix, $eventDateDeb, $eventDateFin, $eventLieu));
+    }
+    return $lesEvents;
+}
+
 // function displayEvents(array $lesEvents)
 // {
 //     foreach ($lesEvents as $event) {
@@ -154,7 +178,8 @@ function getEventsObjects()
 //         echo " <b> Nom de l'evenement : </b> " . $event->get_titre() . " <b> Description : </b> " . $event->get_description();
 //     }
 // }
-function get_transports($id_lieu, $transports) {
+function get_transports($id_lieu, $transports)
+{
     require("models/config/config.php");
     $reqDesserte = "SELECT idtransport FROM desservir WHERE idlieu = $id_lieu";
     $dessertes = $db->query($reqDesserte);

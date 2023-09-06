@@ -17,6 +17,7 @@ function afficherMenu()
         }
 
     }
+    echo "<input type='search' id='search-bar'>";
     echo ("</div>");
 }
 function afficherPlus(int $id_lieu): string
@@ -56,7 +57,7 @@ function Lieux_HTML()
         $array_lieux[$lieu->get_nom()] = $lieux_html;
 
     }
-    
+
     // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
     return $array_lieux;
 }
@@ -87,11 +88,14 @@ function displayEvents()
     echo ("</div>");
 }
 
-function displayLieu(int $id_lieu) {
+function displayLieu(int $id_lieu)
+{
     require("models/config/config.php");
     echo ("<div class=monument-card>");
     $les_transports = getTransportsObject();
+    $lesEvents = getEventsObjectsFromLieu($id_lieu);
     $les_lieux = getLieuxObject();
+
     foreach ($les_lieux as $lieu) {
         if ($lieu->get_id() == $id_lieu) {
             echo ("<h2 class='nom-monument'>" . $lieu->get_nom() . "</h2>");
@@ -105,14 +109,24 @@ function displayLieu(int $id_lieu) {
             }
             foreach ($les_transports as $transport) {
                 if (in_array($transport->get_id(), $les_dessertes)) {
-                    echo("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
-                    echo("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
-                    echo($transport->get_arret());
+                    echo ("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
+                    echo ("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
+                    echo ($transport->get_arret());
                 }
+            }
+
+            foreach ($lesEvents as $event) {
+                echo "<br>";
+                echo "<b> Evenements ici : ";
+                echo $event->get_titre();
+                echo '<a href="?s=event&idE=' . $event->get_id() . '"> <input type="submit" value="Detail de l\'evenement" /> </a>';
+
             }
         }
     }
     echo ("</div>");
+
+
 }
 function caseEventHandler(int $eventId)
 {
@@ -123,6 +137,9 @@ function caseEventHandler(int $eventId)
     foreach ($lesEvents as $event) {
         if ($event->get_id() == $eventId) {
             echo "Titre de l'evenement : " . $event->get_titre() . "Description de l'evenement : " . $event->get_description() . "Prix de l'evenement : " . $event->get_prix() . " Date de début : " . $event->get_date_debut() . " Date de fin : " . $event->get_date_fin();
+            echo '<a href="?s=lieu&idL=' . $event->get_lieu()->get_id() . '"> <input type="submit" value="Detail du lieu" /> </a>';
+
+
         }
     }
 }
