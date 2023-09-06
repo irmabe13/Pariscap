@@ -29,21 +29,24 @@ const cardsContainer = document.getElementById("cards-container");
 console.log(cardsContainer);
 
 function displayLieux() {
-  console.log(lieuArray);
-  console.log(cardsContainer);
   console.log("display");
-  cardsContainer.innerHTML = lieuArray
-    .filter((lieu) =>
-      lieu.nom.toLowerCase().includes(inputSearch.value.toLowerCase())
-    )
-    .map(
-      (lieu) => `
-      <div class='card_lieu'>
-      <h2> ${lieu.nom} </h2>
-      </div>
-    `
-    )
-    .join("");
+  // keys = Object.keys(lieuArray);
+
+  for (let i in lieuArray) {
+    console.log(i.toLowerCase().includes(inputSearch.value));
+
+    if (i.toLowerCase().includes(inputSearch.value.toLowerCase())) {
+      cardsContainer.innerHTML = lieuArray[i];
+    } else if (inputSearch.value.toLowerCase() == null) {
+      cardsContainer.innerHTML = lieuArray;
+    }
+  }
+
+  // cardsContainer.innerHTML = keys
+  //   .filter((lieu) => lieu.includes(inputSearch.value))
+  //   .map((lieu) => lieuArray[lieu])
+  //   .join("");
 }
 
+console.log(cardsContainer);
 inputSearch.addEventListener("input", displayLieux);
