@@ -23,13 +23,14 @@
             </div>
             <?php
             require('views/fonctions_views.php');
-            afficherMenu();
-            ?>
+            include "views/menu.php"
+                ?>
         </nav>
     </header>
     <main>
 
         <?php
+
         require("models/config/config.php");
         require("models/class/lieu.php");
         require("models/fonction/fonctions_bdd.php");
@@ -44,38 +45,40 @@
                 ?><script>const event_html = <?php echo(json_encode(eventsHTML("card-event"))); ?></script><?php
                 break;
             case "lieux":
-                displayLieux();
+                include "views/lieux.php";
                 break;
             case "evenement":
-                echo ("<div class='events-container'>");
                 displayEvents();
-                echo ("</div>");
                 break;
             case "contact":
                 break;
             case "lieu":
-                displayLieu($_GET['idL']);
+                //  displayLieu($_GET['idL']);
+                include "views/lieu.php";
+                break;
             case "search":
                 include "views/search.php";
-
                 break;
             case "event";
-                caseEventHandler($_GET['idE']);
+                // caseEventHandler($_GET['idE']);
+                include "views/event.php";
                 break;
 
         }
         ?>
 
         <script type="text/javascript">
-            <?php
-            $php_array_lieux = getLieuxObject();
-            $php_array_events = getEventsObjects();
+        <?php
+        $php_array_lieux = getLieuxObject();
+        $php_array_events = getEventsObjects();
 
             $js_array_lieux = json_encode($php_array_lieux);
             $js_array_events = json_encode($php_array_events);
             echo "let lieuArray = " . $js_array_lieux . ";\n";
             echo "let eventsArray = " . $js_array_events . ";\n";
             ?>
+
+
         </script>
 
     </main>
