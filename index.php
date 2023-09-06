@@ -39,7 +39,7 @@
                 echo ("Page d'accueil");
                 break;
             case "lieux":
-                echo(displayLieux());
+                displayLieux();
                 break;
             case "evenement":
                 displayEvents();
