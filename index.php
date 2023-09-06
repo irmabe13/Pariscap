@@ -40,7 +40,7 @@
                 include "views/accueil.php";
                 break;
             case "lieux":
-                echo(displayLieux());
+                displayLieux();
                 break;
             case "evenement":
                 displayEvents();
