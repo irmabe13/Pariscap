@@ -8,9 +8,9 @@ function afficherMenu()
     }
     ;
     $menu_navigation = ['Accueil', 'Lieux', 'Evenement', 'Contact'];
-    echo("<div class='header-nav'>");
-    echo('<div>');
-    echo("<div class='navlinks-container'>");
+    echo ("<div class='header-nav'>");
+    echo ('<div>');
+    echo ("<div class='navlinks-container'>");
     foreach ($menu_navigation as $nav_links) {
         if ($current_page == strtolower($nav_links)) {
             echo ("<a href='?s=" . strtolower($nav_links) . "' aria-current='page'><strong>" . $nav_links . "</strong></a>");
@@ -19,11 +19,15 @@ function afficherMenu()
         }
 
     }
-    echo('</div>');
-    echo("<div>");
-    echo "<input class='search' type='search' id='search-bar'>";
-    echo("</div>");
-    echo("</div>");
+    echo ('</div>');
+    echo ("<div>");
+    echo ("</div>");
+
+    echo ("</div>");
+
+    echo '<a  href="?s=search"><img class="searchLogo" src="public\images\logo_recherche.png"></a>';
+
+
 
 }
 function afficherPlus(int $id_lieu): string
@@ -114,17 +118,17 @@ function displayLieu(int $id_lieu)
             foreach ($dessertes->fetchAll() as $desserte) {
                 array_push($les_dessertes, $desserte['idtransport']);
             }
-            echo("<div class='box-transports'>");
+            echo ("<div class='box-transports'>");
             foreach ($les_transports as $transport) {
                 if (in_array($transport->get_id(), $les_dessertes)) {
-                    echo("<div class='transports'>");
+                    echo ("<div class='transports'>");
                     echo ("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
                     echo ("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
                     echo ($transport->get_arret());
-                    echo("</div>");
+                    echo ("</div>");
                 }
             }
-            echo("</div>");
+            echo ("</div>");
 
             foreach ($lesEvents as $event) {
                 echo "<br>";
