@@ -13,19 +13,19 @@
 <body>
     <header class="header">
         <nav>
-            <a href="?s=accueil"><img class="logo" src="public\images\logo_tour_eiffel.png"></a>
-            <div class="main-navlinks">
-                <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-            <?php
-            require('views/fonctions_views.php');
-            afficherMenu();
-            ?>
-            <input class='search' type='search' id='search-bar'>
+                <a href="?s=accueil"><img class="logo" src="public\images\logo_tour_eiffel.png"></a>
+                <div class="main-navlinks">
+                    <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <?php
+                require('views/fonctions_views.php');
+                afficherMenu();
+                ?>
+                <input class='search' type='search' id='search-bar'>
         </nav>
     </header>
     <main>
