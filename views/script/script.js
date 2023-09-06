@@ -7,7 +7,7 @@ const toggleNav = (e) => {
   toggler.classList.toggle("open");
 
   const ariaToggle =
-    toggler.getAttribute("aria-expanded") === "true" ? "false" : "true";
+    toggler.getAttribute("aria-expanded") === "false" ? "true" : "false";
   toggler.setAttribute("aria-expanded", ariaToggle);
 
   // Slide de la navigation
