@@ -20,6 +20,8 @@ function afficherMenu()
     }
     echo ("</div>");
     echo ("</div>");
+    echo '<a href="?s=search"><img class="searchLogo" src="public\images\logo_recherche.png"></a>';
+
 
 }
 function afficherPlus(int $id_lieu): string
@@ -82,7 +84,7 @@ function displayEvents()
     echo ("<div class='events-container'>");
     foreach ($lesEvents as $event) {
         echo ("<div class='card-event'>");
-        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . $event->courte_description() . "</p>";
+        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . $event->get_courte_description() . "</p>";
         echo (afficherPlusEvent($event->get_id()));
         echo ("</div>");
     }
