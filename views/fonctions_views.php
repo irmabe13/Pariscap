@@ -17,7 +17,7 @@ function afficherMenu()
         }
 
     }
-    echo "<input type='search' id='search-bar'>";
+    echo "<input class='search' type='search' id='search-bar'>";
     echo ("</div>");
 }
 function afficherPlus(int $id_lieu): string
@@ -107,13 +107,17 @@ function displayLieu(int $id_lieu)
             foreach ($dessertes->fetchAll() as $desserte) {
                 array_push($les_dessertes, $desserte['idtransport']);
             }
+            echo("<div class='box-transports'>");
             foreach ($les_transports as $transport) {
                 if (in_array($transport->get_id(), $les_dessertes)) {
+                    echo("<div class='transports'>");
                     echo ("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
                     echo ("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
                     echo ($transport->get_arret());
+                    echo("</div>");
                 }
             }
+            echo("</div>");
 
             foreach ($lesEvents as $event) {
                 echo "<br>";
