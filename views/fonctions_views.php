@@ -47,6 +47,7 @@ function Lieux_HTML()
         //afficherPlus($lieu->get_id());
         $lieux_html .= "</div>";
         $lieux_html .= "<div class='card-lieu-back'>";
+        //$lieux_html .= "<p class='courte-description'>" . $lieu->get_courtedescription() . "</p>";
         $lieux_html .= "<p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
         $lieux_html .= afficherPlus($lieu->get_id());
         $lieux_html .= "</div>";
