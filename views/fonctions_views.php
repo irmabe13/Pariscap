@@ -17,7 +17,8 @@ function afficherMenu()
         }
 
     }
-    echo ("</div>");
+echo "<input type='search' id='search-bar'>";
+        echo ("</div>");
 }
 function afficherPlus(int $id_lieu)
 {
@@ -36,31 +37,31 @@ function displayLieux()
     $lesLieux = getLieuxObject();
 
 
-    echo ("<div class='cards-container'>");
+    echo ("<div class='cards-container' id='cards-container'>");
     foreach ($lesLieux as $lieu) {
         echo ("<div class='card_lieu'>");
         echo "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'><p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
         afficherPlus($lieu->get_id());
         echo ("</div>");
-        /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
-            $idTrans = $idTransport['idtransport'];
+    //     /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
+    //         $idTrans = $idTransport['idtransport'];
 
-            array_push($transportIds, $idTrans);
+    //         array_push($transportIds, $idTrans);
 
-            $reqTransports = $db->query("SELECT * FROM transport where id = $idTrans");
-            foreach ($reqTransports->fetchAll(PDO::FETCH_ASSOC) as $transport) {
-                $idTrans = $transport['id'];
-                $arretTrans = $transport['arret'];
-                echo " " . $idTrans . " à l'arrêt : " . $arretTrans;
+    //         $reqTransports = $db->query("SELECT * FROM transport where id = $idTrans");
+    //         foreach ($reqTransports->fetchAll(PDO::FETCH_ASSOC) as $transport) {
+    //             $idTrans = $transport['id'];
+    //             $arretTrans = $transport['arret'];
+    //             echo " " . $idTrans . " à l'arrêt : " . $arretTrans;
 
-            }
+    //         }
 
-        }*/
-        echo "<br>";
+    //     }*/
+    //     echo "<br>";
 
-        // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
+    //     // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
 
-    }
+    // }
     echo ("</div>");
     $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
     // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
@@ -85,11 +86,14 @@ function displayEvents()
     echo ("</div>");
 }
 
-function displayLieu(int $id_lieu) {
+function displayLieu(int $id_lieu)
+{
     require("models/config/config.php");
     echo ("<div class=monument-card>");
     $les_transports = getTransportsObject();
+    $lesEvents = getEventsObjectsFromLieu($id_lieu);
     $les_lieux = getLieuxObject();
+
     foreach ($les_lieux as $lieu) {
         if ($lieu->get_id() == $id_lieu) {
             echo ("<h2 class='nom-monument'>" . $lieu->get_nom() . "</h2>");
@@ -103,14 +107,24 @@ function displayLieu(int $id_lieu) {
             }
             foreach ($les_transports as $transport) {
                 if (in_array($transport->get_id(), $les_dessertes)) {
-                    echo("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
-                    echo("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
-                    echo($transport->get_arret());
+                    echo ("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
+                    echo ("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
+                    echo ($transport->get_arret());
                 }
+            }
+
+            foreach ($lesEvents as $event) {
+                echo "<br>";
+                echo "<b> Evenements ici : ";
+                echo $event->get_titre();
+                echo '<a href="?s=event&idE=' . $event->get_id() . '"> <input type="submit" value="Detail de l\'evenement" /> </a>';
+
             }
         }
     }
     echo ("</div>");
+
+
 }
 function caseEventHandler(int $eventId)
 {
@@ -121,6 +135,9 @@ function caseEventHandler(int $eventId)
     foreach ($lesEvents as $event) {
         if ($event->get_id() == $eventId) {
             echo "Titre de l'evenement : " . $event->get_titre() . "Description de l'evenement : " . $event->get_description() . "Prix de l'evenement : " . $event->get_prix() . " Date de début : " . $event->get_date_debut() . " Date de fin : " . $event->get_date_fin();
+            echo '<a href="?s=lieu&idL=' . $event->get_lieu()->get_id() . '"> <input type="submit" value="Detail du lieu" /> </a>';
+
+
         }
     }
 }
