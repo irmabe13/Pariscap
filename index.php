@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="views\style\style.css">
-    <link rel="icon" href="" />
+    <link rel="icon" href="public/images/logo_tour_eiffel.jpg" />
 </head>
 
 <body>
     <header class="header">
         <nav>
-            <img class="logo" src="public\images\logo_tour_eiffel.jpg">
+            <a href="?s=home"><img class="logo" src="public\images\logo_tour_eiffel.jpg"></a>
             <div class="main-navlinks">
                 <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
                     <span></span>
@@ -39,7 +39,7 @@
                 echo ("Page d'accueil");
                 break;
             case "lieux":
-                displayLieux();
+                echo(displayLieux());
                 break;
             case "evenement":
                 displayEvents();

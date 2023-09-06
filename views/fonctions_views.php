@@ -19,15 +19,15 @@ function afficherMenu()
     }
     echo ("</div>");
 }
-function afficherPlus(int $id_lieu)
+function afficherPlus(int $id_lieu): string
 {
-    echo "<a class='plus' href='?s=lieu&idL=" . $id_lieu . "' aria-current='page'>+</a>";
+    return "<a class='plus' href='?s=lieu&idL=" . $id_lieu . "' aria-current='page'>+</a>";
 }
 
 
-function afficherPlusEvent(int $id_event)
+function afficherPlusEvent(int $id_event): string
 {
-    echo "<a class='plus' href='?s=event&idE=" . $id_event . "' aria-current='page'>+</a>";
+    return "<a class='plus' href='?s=event&idE=" . $id_event . "' aria-current='page'>+</a>";
 }
 
 function displayLieux()
@@ -35,36 +35,29 @@ function displayLieux()
     require("models\config\config.php");
     $lesLieux = getLieuxObject();
 
+    $lieux_html = "<div class='cards-container'>";
+    $lieux_html .= "<div class='cards-container'>";
 
-    echo ("<div class='cards-container'>");
     foreach ($lesLieux as $lieu) {
-        echo ("<div class='card_lieu'>");
-        echo "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'><p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
-        afficherPlus($lieu->get_id());
-        echo ("</div>");
-        /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
-            $idTrans = $idTransport['idtransport'];
 
-            array_push($transportIds, $idTrans);
-
-            $reqTransports = $db->query("SELECT * FROM transport where id = $idTrans");
-            foreach ($reqTransports->fetchAll(PDO::FETCH_ASSOC) as $transport) {
-                $idTrans = $transport['id'];
-                $arretTrans = $transport['arret'];
-                echo " " . $idTrans . " à l'arrêt : " . $arretTrans;
-
-            }
-
-        }*/
-        echo "<br>";
-
-        // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
+        $lieux_html .= "<div class='card-lieu'>";
+        $lieux_html .= "<div class='card-lieu-inner'>";
+        $lieux_html .= "<div class='card-lieu-front'>";
+        $lieux_html .= "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'>";
+        //afficherPlus($lieu->get_id());
+        $lieux_html .= "</div>";
+        $lieux_html .= "<div class='card-lieu-back'>";
+        $lieux_html .= "<p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
+        $lieux_html .= afficherPlus($lieu->get_id());
+        $lieux_html .= "</div>";
+        $lieux_html .= "</div>";
+        $lieux_html .= "</div>";
+        $lieux_html .= "<br>";
 
     }
-    echo ("</div>");
-    $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
+    $lieux_html .= "</div>";
     // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
-
+    return $lieux_html;
 }
 
 function displayEvents()
