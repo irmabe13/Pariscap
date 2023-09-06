@@ -8,7 +8,9 @@ function afficherMenu()
     }
     ;
     $menu_navigation = ['Accueil', 'Lieux', 'Evenement', 'Contact'];
-    echo ("<div class='navlinks-container'>");
+    echo("<div class='header-nav'>");
+    echo('<div>');
+    echo("<div class='navlinks-container'>");
     foreach ($menu_navigation as $nav_links) {
         if ($current_page == strtolower($nav_links)) {
             echo ("<a href='?s=" . strtolower($nav_links) . "' aria-current='page'><strong>" . $nav_links . "</strong></a>");
@@ -17,8 +19,12 @@ function afficherMenu()
         }
 
     }
+    echo('</div>');
+    echo("<div>");
     echo "<input class='search' type='search' id='search-bar'>";
-    echo ("</div>");
+    echo("</div>");
+    echo("</div>");
+
 }
 function afficherPlus(int $id_lieu): string
 {
@@ -143,8 +149,6 @@ function caseEventHandler(int $eventId)
         if ($event->get_id() == $eventId) {
             echo "Titre de l'evenement : " . $event->get_titre() . "Description de l'evenement : " . $event->get_description() . "Prix de l'evenement : " . $event->get_prix() . " Date de début : " . $event->get_date_debut() . " Date de fin : " . $event->get_date_fin();
             echo '<a href="?s=lieu&idL=' . $event->get_lieu()->get_id() . '"> <input type="submit" value="Detail du lieu" /> </a>';
-
-
         }
     }
 }

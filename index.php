@@ -13,7 +13,7 @@
 <body>
     <header class="header">
         <nav>
-            <a href="?s=home"><img class="logo" src="public\images\logo_tour_eiffel.jpg"></a>
+            <a href="?s=accueil"><img class="logo" src="public\images\logo_tour_eiffel.png"></a>
             <div class="main-navlinks">
                 <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
                     <span></span>
@@ -35,8 +35,8 @@
         require("models/fonction/fonctions_bdd.php");
 
         switch (@$_GET['s']) {
-            case "home":
-                echo ("Page d'accueil");
+            case "accueil":
+                include "views/accueil.php";
                 break;
             case "lieux":
                 displayLieux();
@@ -59,7 +59,8 @@
 
         <script type="text/javascript">
             <?php
-            $php_array = getLieuxObject();
+            $php_array = Lieux_HTML();
+
             $js_array = json_encode($php_array);
             echo "let lieuArray = " . $js_array . ";\n"
                 ?>
