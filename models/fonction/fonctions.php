@@ -44,34 +44,12 @@ function displayLieux()
 
 }
 
-function displayEvents()
-{
-    require("models\config\config.php");
-    $lesEvents = getEventsObjects();
-
-
-    echo ("<div class='cards-container'>");
-    foreach ($lesEvents as $event) {
-        echo ("<div class='card_lieu'>");
-        echo "<h2 class='nom-lieu'>" . $event->get_titre() . "</h2>" . "<img class='lieu-image' src='public\images\\" . "'><p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
-        afficherPlusEvent($event->get_id());
-        echo ("</div>");
-        echo "<br>";
-
-    }
-    echo ("</div>");
-}
-
 
 assert(est_un_lieu("lieu_10"));
 assert(!est_un_lieu("lieu0"));
 assert(!est_un_lieu(12));
 assert(!est_un_lieu(""));
 assert(!est_un_lieu("lieu"));
-
-function search_bar(){
-    ?><script>const lieux_objects =<?php json_encode(getLieuxObject());?>;</script><?php
-}
 
 
     ?>

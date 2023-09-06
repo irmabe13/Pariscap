@@ -7,17 +7,19 @@ class Evenement
     public $id;
     public $titre;
     public $description;
+    public $courte_description;
     public $prix;
     public $date_debut;
     public $date_fin;
     public $lieu;
 
-    public function __construct(int $id, string $titre, string $description, float $prix, string $date_debut, string $date_fin, Lieu $lieu)
+    public function __construct(int $id, string $titre, string $description, string $courte_description, float $prix, string $date_debut, string $date_fin, Lieu $lieu)
     {
 
         $this->id = $id;
         $this->titre = $titre;
         $this->description = $description;
+        $this->courte_description = $courte_description;
         $this->prix = $prix;
         $this->date_debut = $date_debut;
         $this->date_fin = $date_fin;
@@ -65,6 +67,18 @@ class Evenement
 
         $this->description = $description;
 
+    }
+
+    public function get_courte_description(){
+        
+        return $this->courte_description;
+
+    }
+
+    public function set_courte_description($courte_description){
+
+        $this->courte_description = $courte_description;
+ 
     }
 
     public function get_prix(): float
