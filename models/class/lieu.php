@@ -6,16 +6,18 @@ class Lieu
     public $id;
     public $nom;
     public $description;
+    public $courte_description;
     public $transports;
     public $evenements;
     public $image;
 
-    public function __construct($id, $nom, $description, $transports, $evenements, $image)
+    public function __construct($id, $nom, $description, $courte_description, $transports, $evenements, $image)
     {
 
         $this->id = $id;
         $this->nom = $nom;
         $this->description = $description;
+        $this->courte_description = $courte_description;
         $this->transports = $transports;
         $this->evenements = $evenements;
         $this->image = $image;
@@ -68,6 +70,16 @@ class Lieu
 
         $this->description = $uneDescription;
 
+    }
+
+    public function get_courtedescription(): string
+    {
+        return $this->courte_description;
+    }
+
+    public function set_courtedescription($uneCourteDescription)
+    {
+        $this->courte_description = $uneCourteDescription;
     }
 
     public function get_transports(): array
