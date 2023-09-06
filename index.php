@@ -48,16 +48,24 @@
                 break;
             case "lieu":
                 displayLieu($_GET['idL']);
+
                 break;
             case "event";
                 caseEventHandler($_GET['idE']);
                 break;
 
-
         }
         ?>
 
+        <script type="text/javascript">
+            <?php
+            $php_array = getLieuxObject();
+            $js_array = json_encode($php_array);
+            echo "let lieuArray = " . $js_array . ";\n"
+                ?>
 
+
+        </script>
 
     </main>
     <footer>
