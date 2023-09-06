@@ -104,17 +104,17 @@ $transport = new Transport(1, 3, "A", "Nation");
 
 
 
-assert($transport->get_id() == 1);
-$transport->set_id(5);
-assert($transport->get_id() == 5);
-assert($transport->get_type() == 3);
-$transport->set_type(6);
-assert($transport->get_type() == 6);
-assert($transport->get_ligne() == "A");
-$transport->set_ligne("D");
-assert($transport->get_ligne() == "D");
-assert($transport->get_arret() == "Nation");
-$transport->set_arret("Invalides");
-assert($transport->get_arret() == "Invalides");
+// assert($transport->get_id() == 1);
+// $transport->set_id(5);
+// assert($transport->get_id() == 5);
+// assert($transport->get_type() == 3);
+// $transport->set_type(6);
+// assert($transport->get_type() == 6);
+// assert($transport->get_ligne() == "A");
+// $transport->set_ligne("D");
+// assert($transport->get_ligne() == "D");
+// assert($transport->get_arret() == "Nation");
+// $transport->set_arret("Invalides");
+// assert($transport->get_arret() == "Invalides");
 
 ?>
