@@ -25,6 +25,7 @@ body {
     cursor: pointer;
     border-radius: 100%;
 }
+
 .cards-container {
     position: relative;
     display: flex;
@@ -34,7 +35,89 @@ body {
     gap: 100px 50px;
     padding: 100px 50px;
 }
-.card_lieu {
+.card-lieu {
+    perspective: 1000px;
+  }
+  .card-lieu-inner {
+    /*margin: 20px;*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+  .card-lieu:hover .card-lieu-inner {
+    transform: rotateY(180deg);
+  }
+  .card-lieu-front,
+  .card-lieu-back {
+      position: relative;
+      backface-visibility: hidden;
+      background: #fafafa;
+      padding: 10px;
+      width: 20vw;
+      min-width: 300px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      animation: appear 2s ease-in-out;
+  }
+  @keyframes appear {
+       0% {
+          opacity: 0;
+       }
+       100% {
+        opacity: 1;
+       }
+  }
+  .card-lieu-back {
+    top: 0px;
+    position: absolute;
+    transform: rotateY(180deg);
+  }
+/*
+.card-lieu {
+    perspective: 1000px;
+}
+.card-lieu-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+.card-lieu:hover .card-lieu-inner {
+    transform: rotateY(180deg);
+}
+.card-lieu-front, .card-lieu-back { 
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.card-lieu-back {
+    transform: rotateY(180deg);
+}
+.card-lieu {
+    perspective: 1000px;
+}
+  .card-lieu-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+  .card-lieu:hover .card-lieu-inner {
+    transform: rotateY(180deg);
+  }
+  .card-lieu-front,
+  .card-lieu-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  .card-lieu-front {
     background: #fafafa;
     margin: 10px;
     padding: 20px;
@@ -42,7 +125,10 @@ body {
     min-width: 300px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-}
+  }
+  .card-lieu-back {
+    transform: rotateY(180deg);
+  }*/
 .nom-lieu {
     font-size: 20px;
     text-align: center;
@@ -97,6 +183,7 @@ body {
 .image-monument {
     display: block;
     margin: 10px auto;
+    width: 60vw;
 }
 .description {
     text-align: center;

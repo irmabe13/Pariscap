@@ -17,56 +17,56 @@ function afficherMenu()
         }
 
     }
-echo "<input type='search' id='search-bar'>";
-        echo ("</div>");
+    echo "<input type='search' id='search-bar'>";
+    echo ("</div>");
 }
-function afficherPlus(int $id_lieu)
+function afficherPlus(int $id_lieu): string
 {
-    echo "<a class='plus' href='?s=lieu&idL=" . $id_lieu . "' aria-current='page'>+</a>";
+    return "<a class='plus' href='?s=lieu&idL=" . $id_lieu . "' aria-current='page'>+</a>";
 }
 
 
-function afficherPlusEvent(int $id_event)
+function afficherPlusEvent(int $id_event): string
 {
-    echo "<a class='plus' href='?s=event&idE=" . $id_event . "' aria-current='page'>+</a>";
+    return "<a class='plus' href='?s=event&idE=" . $id_event . "' aria-current='page'>+</a>";
 }
 
-function displayLieux()
+function Lieux_HTML()
 {
     require("models\config\config.php");
     $lesLieux = getLieuxObject();
 
+    $array_lieux = [];
 
-    echo ("<div class='cards-container' id='cards-container'>");
     foreach ($lesLieux as $lieu) {
-        echo ("<div class='card_lieu'>");
-        echo "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'><p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
-        afficherPlus($lieu->get_id());
-        echo ("</div>");
-    //     /*foreach ($reqDesservir->fetchAll(PDO::FETCH_ASSOC) as $idTransport) {
-    //         $idTrans = $idTransport['idtransport'];
 
-    //         array_push($transportIds, $idTrans);
+        $lieux_html = "<div class='card-lieu'>";
+        $lieux_html .= "<div class='card-lieu-inner'>";
+        $lieux_html .= "<div class='card-lieu-front'>";
+        $lieux_html .= "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'>";
+        //afficherPlus($lieu->get_id());
+        $lieux_html .= "</div>";
+        $lieux_html .= "<div class='card-lieu-back'>";
+        $lieux_html .= "<p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
+        $lieux_html .= afficherPlus($lieu->get_id());
+        $lieux_html .= "</div>";
+        $lieux_html .= "</div>";
+        $lieux_html .= "</div>";
+        $lieux_html .= "<br>";
 
-    //         $reqTransports = $db->query("SELECT * FROM transport where id = $idTrans");
-    //         foreach ($reqTransports->fetchAll(PDO::FETCH_ASSOC) as $transport) {
-    //             $idTrans = $transport['id'];
-    //             $arretTrans = $transport['arret'];
-    //             echo " " . $idTrans . " à l'arrêt : " . $arretTrans;
+        $array_lieux[$lieu->get_nom()] = $lieux_html;
 
-    //         }
+    }
 
-    //     }*/
-    //     echo "<br>";
-
-    //     // $lieu = new Lieu($lieu['id'], $lieu['nom'], $lieu['description']);
-
-    // }
-    echo ("</div>");
-    $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = 2");
     // var_dump($reqDesservir->fetchAll(PDO::FETCH_ASSOC));
-
+    return $array_lieux;
 }
+
+/*function displayLieux() {
+    echo("<div class='cards-container'>");
+    print_r($lieux_html)
+    echo("</div>");
+}*/
 
 function displayEvents()
 {
@@ -74,10 +74,10 @@ function displayEvents()
     $lesEvents = getEventsObjects();
 
 
-    echo ("<div class='cards-container'>");
+    echo ("<div class='events-container'>");
     foreach ($lesEvents as $event) {
-        echo ("<div class='card_lieu'>");
-        echo "<h2 class='nom-lieu'>" . $event->get_titre() . "</h2>" . "<img class='lieu-image' src='public\images\\" . "'><p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
+        echo ("<div class='card_event'>");
+        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
         afficherPlusEvent($event->get_id());
         echo ("</div>");
         echo "<br>";
