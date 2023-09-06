@@ -42,7 +42,9 @@
                 displayLieux();
                 break;
             case "evenement":
+                echo ("<div class='events-container'>");
                 displayEvents();
+                echo ("</div>");
                 break;
             case "contact":
                 break;
