@@ -81,7 +81,7 @@ body {
       min-height: 285px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
       border-radius: 5px;
-      animation: appear 2s ease-in-out;
+      animation: appear 1.5s ease-in-out;
   }
   @keyframes appear {
        0% {
