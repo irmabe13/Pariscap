@@ -59,7 +59,8 @@
 
         <script type="text/javascript">
             <?php
-            $php_array = getLieuxObject();
+            $php_array = Lieux_HTML();
+
             $js_array = json_encode($php_array);
             echo "let lieuArray = " . $js_array . ";\n"
                 ?>
