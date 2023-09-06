@@ -61,11 +61,13 @@ function Lieux_HTML()
     return $array_lieux;
 }
 
-/*function displayLieux() {
+function displayLieux() {
     echo("<div class='cards-container'>");
-    print_r($lieux_html)
+    foreach(lieux_HTML() as $lieu) {
+        echo($lieu);
+    }
     echo("</div>");
-}*/
+}
 
 function displayEvents()
 {
