@@ -49,6 +49,7 @@ function getUnLieuObject($idLieu)
         $transportsId = [];
         $events = [];
         $lieuId = $lieu["id"];
+        $lieuCourteDescription = $lieu["courte_description"];
         $lieuNom = $lieu["nom"];
         $lieuDescription = $lieu['description'];
         $courteDescription = $lieu['courte_description'];
@@ -71,7 +72,7 @@ function getUnLieuObject($idLieu)
             array_push($transportsId, $idTrans);
         }
 
-        $leLieu = new Lieu($lieuId, $lieuNom, $lieuDescription, $courteDescription, $transportsId, $events, $lieuImage);
+        $leLieu = new Lieu($lieuId, $lieuNom, $lieuDescription, $lieuCourteDescription, $transportsId, $events, $lieuImage);
 
     }
 
