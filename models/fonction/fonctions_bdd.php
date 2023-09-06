@@ -12,6 +12,7 @@ function getLieuxObject()
         $lieuId = $lieu["id"];
         $lieuNom = $lieu["nom"];
         $lieuDescription = $lieu['description'];
+        $courteDescription = $lieu['courte_description'];
         $lieuImage = $lieu['image'];
 
         $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
@@ -31,7 +32,7 @@ function getLieuxObject()
             array_push($transportsId, $idTrans);
         }
 
-        array_push($lesLieux, new Lieu($lieuId, $lieuNom, $lieuDescription, $transportsId, $events, $lieuImage));
+        array_push($lesLieux, new Lieu($lieuId, $lieuNom, $lieuDescription, $courteDescription, $transportsId, $events, $lieuImage));
 
     }
 
