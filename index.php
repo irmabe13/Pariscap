@@ -25,6 +25,7 @@
             require('views/fonctions_views.php');
             afficherMenu();
             ?>
+            <input class='search' type='search' id='search-bar'>
         </nav>
     </header>
     <main>
