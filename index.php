@@ -23,8 +23,8 @@
             </div>
             <?php
             require('views/fonctions_views.php');
-            afficherMenu();
-            ?>
+            include "views/menu.php"
+                ?>
         </nav>
     </header>
     <main>
