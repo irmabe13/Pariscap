@@ -33,7 +33,7 @@ function afficherPlusEvent(int $id_event): string
 
 function Lieux_HTML()
 {
-    require("models\config\config.php");
+    require("models/config/config.php");
     $lesLieux = getLieuxObject();
 
     $array_lieux = [];
@@ -72,7 +72,7 @@ function displayLieux() {
 
 function displayEvents()
 {
-    require("models\config\config.php");
+    require("models/config/config.php");
     $lesEvents = getEventsObjects();
 
 

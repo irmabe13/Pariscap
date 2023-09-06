@@ -67,9 +67,11 @@ assert(est_un_lieu("lieu_10"));
 assert(!est_un_lieu("lieu0"));
 assert(!est_un_lieu(12));
 assert(!est_un_lieu(""));
-assert(!est_un_lieu("lieu"))
+assert(!est_un_lieu("lieu"));
 
-
+function search_bar(){
+    ?><script>const lieux_objects =<?php json_encode(getLieuxObject());?>;</script><?php
+}
 
 
     ?>
