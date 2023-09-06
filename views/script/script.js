@@ -43,7 +43,7 @@ function displayLieux() {
       <div class='card_lieu'>
       <div class='card-lieu-inner'>
       <div class='card-lieu-front'>
-      <h2 class='nom-lieu'>${lieu.nom}</h2><img class='lieu-image' src='public/images//${lieu.image}'>
+      <h2 class='nom-lieu'>${lieu.nom}</h2><img class='lieu-image' src='public/images/${lieu.image}'>
       </div>
       <div class='card-lieu-back'>
       <p class='courte-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis! </p>
@@ -69,7 +69,7 @@ function displayEvents() {
     <div class='card_lieu'>
       <div class='card-lieu-inner'>
       <div class='card-lieu-front'>
-      <h2 class='nom-lieu'> Evenement : ${event.titre}</h2><img class='lieu-image' src='public/images//${event.image}'>
+      <h2 class='nom-lieu'> Evenement : ${event.titre}</h2><img class='lieu-image' src='public/images/events/${event.image}'>
       </div>
       <div class='card-lieu-back'>
       <p class='courte-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis! </p>
@@ -93,7 +93,7 @@ function displayBoth() {
       <div class='card_lieu'>
       <div class='card-lieu-inner'>
       <div class='card-lieu-front'>
-      <h2 class='nom-lieu'>${lieu.nom}</h2><img class='lieu-image' src='public/images//${lieu.image}'>
+      <h2 class='nom-lieu'>${lieu.nom}</h2><img class='lieu-image' src='public/images/${lieu.image}'>
       </div>
       <div class='card-lieu-back'>
       <p class='courte-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis! </p>
@@ -114,7 +114,7 @@ function displayBoth() {
  <div class='card_lieu'>
    <div class='card-lieu-inner'>
    <div class='card-lieu-front'>
-   <h2 class='nom-lieu'> Evenement : ${event.titre}</h2><img class='lieu-image' src='public/images//${event.image}'>
+   <h2 class='nom-lieu'> Evenement : ${event.titre}</h2><img class='lieu-image' src='public/images/events/${event.image}'>
    </div>
    <div class='card-lieu-back'>
    <p class='courte-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis! </p>

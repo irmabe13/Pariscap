@@ -139,13 +139,14 @@ function getEventsObjects()
         $eventDescription = $event['description'];
         $eventCourte_description = $event['courte_description'];
         $eventPrix = $event['prix'];
+        $eventImage = $event['image'];
         $eventDateDeb = $event['datedebut'];
         $eventDateFin = $event['datefin'];
         $idLieu = $event['idlieu'];
         $eventLieu = getUnLieuObject($idLieu);
 
 
-        array_push($lesEvents, new Evenement($eventId, $eventTitre, $eventDescription, $eventCourte_description, $eventPrix, $eventDateDeb, $eventDateFin, $eventLieu));
+        array_push($lesEvents, new Evenement($eventId, $eventTitre, $eventDescription, $eventCourte_description, $eventPrix, $eventDateDeb, $eventDateFin, $eventLieu, $eventImage));
     }
     return $lesEvents;
 }
@@ -164,13 +165,15 @@ function getEventsObjectsFromLieu(int $idLieu)
         $eventDescription = $event['description'];
         $eventCourte_description = $event['courte_description'];
         $eventPrix = $event['prix'];
+        $eventImage = $event['image'];
+
         $eventDateDeb = $event['datedebut'];
         $eventDateFin = $event['datefin'];
         $idLieu = $event['idlieu'];
         $eventLieu = getUnLieuObject($idLieu);
 
 
-        array_push($lesEvents, new Evenement($eventId, $eventTitre, $eventDescription, $eventCourte_description, $eventPrix, $eventDateDeb, $eventDateFin, $eventLieu));
+        array_push($lesEvents, new Evenement($eventId, $eventTitre, $eventDescription, $eventCourte_description, $eventPrix, $eventDateDeb, $eventDateFin, $eventLieu, $eventImage));
     }
     return $lesEvents;
 }

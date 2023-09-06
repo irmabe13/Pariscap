@@ -84,7 +84,7 @@ function displayEvents()
     echo ("<div class='events-container'>");
     foreach ($lesEvents as $event) {
         echo ("<div class='card-event'>");
-        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . $event->get_courte_description() . "</p>";
+        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public/images/events" . "'><p class='courte-description'>" . $event->get_courte_description() . "</p>";
         echo (afficherPlusEvent($event->get_id()));
         echo ("</div>");
     }

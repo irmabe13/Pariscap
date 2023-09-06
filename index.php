@@ -48,9 +48,9 @@
                 break;
             case "lieu":
                 displayLieu($_GET['idL']);
+                break;
             case "search":
                 include "views/search.php";
-
                 break;
             case "event";
                 caseEventHandler($_GET['idE']);
