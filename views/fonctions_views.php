@@ -8,7 +8,8 @@ function afficherMenu()
     }
     ;
     $menu_navigation = ['Accueil', 'Lieux', 'Evenement', 'Contact'];
-    echo ("<div class='navlinks-container'>");
+    echo('<div>');
+    echo("<div class='navlinks-container'>");
     foreach ($menu_navigation as $nav_links) {
         if ($current_page == strtolower($nav_links)) {
             echo ("<a href='?s=" . strtolower($nav_links) . "' aria-current='page'><strong>" . $nav_links . "</strong></a>");
@@ -17,8 +18,9 @@ function afficherMenu()
         }
 
     }
-    echo "<input type='search' id='search-bar'>";
-    echo ("</div>");
+    echo("</div>");
+    echo("</div>");
+
 }
 function afficherPlus(int $id_lieu): string
 {
@@ -44,7 +46,7 @@ function Lieux_HTML()
         $lieux_html .= "<div class='card-lieu-inner'>";
         $lieux_html .= "<div class='card-lieu-front'>";
         $lieux_html .= "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'>";
-        //afficherPlus($lieu->get_id());
+        $lieux_html .= afficherPlus($lieu->get_id());
         $lieux_html .= "</div>";
         $lieux_html .= "<div class='card-lieu-back'>";
         //$lieux_html .= "<p class='courte-description'>" . $lieu->get_courtedescription() . "</p>";
@@ -63,12 +65,13 @@ function Lieux_HTML()
     return $array_lieux;
 }
 
-function displayLieux() {
-    echo("<div class='cards-container'>");
-    foreach(lieux_HTML() as $lieu) {
-        echo($lieu);
+function displayLieux()
+{
+    echo ("<div class='cards-container' id='cards-container'>");
+    foreach (lieux_HTML() as $lieu) {
+        echo ($lieu);
     }
-    echo("</div>");
+    echo ("</div>");
 }
 
 function displayEvents()
@@ -79,7 +82,7 @@ function displayEvents()
 
     echo ("<div class='events-container'>");
     foreach ($lesEvents as $event) {
-        echo ("<div class='card_event'>");
+        echo ("<div class='card-event'>");
         echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis!" . "</p>";
         afficherPlusEvent($event->get_id());
         echo ("</div>");
@@ -108,13 +111,17 @@ function displayLieu(int $id_lieu)
             foreach ($dessertes->fetchAll() as $desserte) {
                 array_push($les_dessertes, $desserte['idtransport']);
             }
+            echo("<div class='box-transports'>");
             foreach ($les_transports as $transport) {
                 if (in_array($transport->get_id(), $les_dessertes)) {
+                    echo("<div class='transports'>");
                     echo ("<img class='logo-ratp' src='public/images/transports/" . $transport->get_type() . ".jpg'>");
                     echo ("<img class='numero-ligne' src='public/images/transports/ligne_" . $transport->get_ligne() . ".jpg'>");
                     echo ($transport->get_arret());
+                    echo("</div>");
                 }
             }
+            echo("</div>");
 
             foreach ($lesEvents as $event) {
                 echo "<br>";
@@ -139,8 +146,6 @@ function caseEventHandler(int $eventId)
         if ($event->get_id() == $eventId) {
             echo "Titre de l'evenement : " . $event->get_titre() . "Description de l'evenement : " . $event->get_description() . "Prix de l'evenement : " . $event->get_prix() . " Date de début : " . $event->get_date_debut() . " Date de fin : " . $event->get_date_fin();
             echo '<a href="?s=lieu&idL=' . $event->get_lieu()->get_id() . '"> <input type="submit" value="Detail du lieu" /> </a>';
-
-
         }
     }
 }
