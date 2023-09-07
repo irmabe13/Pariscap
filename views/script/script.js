@@ -85,6 +85,7 @@ function displayEvents() {
 }
 
 function displayBoth() {
+  console.log("both");
   cardsContainer.innerHTML =
     lieuArray
       .filter((lieu) =>
@@ -113,18 +114,18 @@ function displayBoth() {
       )
       .map(
         (event) => `
- <div class='card-lieu'>
-   <div class='card-lieu-inner'>
-   <div class='card-lieu-front'>
-   <h2 class='nom-lieu'> Evenement : ${event.titre}</h2><img class='lieu-image' src='public/images/events/${event.image}'>
-   </div>
-   <div class='card-lieu-back'>
-   <p class='courte-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis! </p>
-   <a class='plus' href='?s=lieu&idL=${event.id}' aria-current='page'>+</a>
-   </div>
-   </div>
-   </div>
-   <br>
+          <div class='card-lieu'>
+            <div class='card-lieu-inner'>
+            <div class='card-lieu-front'>
+            <h2 class='nom-lieu'> Evenement : ${event.titre}</h2><img class='lieu-image' src='public/images/events/${event.image}'>
+            </div>
+            <div class='card-lieu-back'>
+            <p class='courte-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro, eum nam ut vitae, itaque odit, quis maiores ab cupiditate aspernatur eveniet tempore error et! Id pariatur quisquam distinctio quo excepturi animi iure dolor impedit velit odit. Reprehenderit quis mollitia accusamus aliquid, libero delectus. Tempora ratione ut id et omnis! </p>
+            <a class='plus' href='?s=lieu&idL=${event.id}' aria-current='page'>+</a>
+            </div>
+            </div>
+            </div>
+            <br>
    `
       );
 }
@@ -138,7 +139,7 @@ try {
       displayEvents();
     }
   });
-  
+
   searchChoice.addEventListener("input", () => {
     if (searchChoice.value == "lieu") {
       displayLieux();
@@ -149,22 +150,28 @@ try {
     }
   });
   displayLieux();
+} catch (error) {
+  console.error(error);
 }
-catch (error) {
-    console.error(error);
-}
-const nb_events = event_html.length;
-for (let button_index = 0; button_index < nb_events; button_index++) {
-  document.getElementById(`radio-btn-${button_index}`).addEventListener('click', () => {
-    let oldButtonClicked = document.getElementsByClassName('clicked')[0];
-    console.log(oldButtonClicked);
-    oldButtonClicked.classList.remove('clicked');
-    oldButtonClicked.classList.add('unclicked');
-    document.getElementById(`radio-btn-${button_index}`).classList.remove('unclicked');
-    document.getElementById(`radio-btn-${button_index}`).classList.add('clicked');
-    document.getElementById('slider-accueil').innerHTML = event_html[button_index];
-  });
-}
+// const nb_events = event_html.length;
+// for (let button_index = 0; button_index < nb_events; button_index++) {
+//   document
+//     .getElementById(`radio-btn-${button_index}`)
+//     .addEventListener("click", () => {
+//       let oldButtonClicked = document.getElementsByClassName("clicked")[0];
+//       console.log(oldButtonClicked);
+//       oldButtonClicked.classList.remove("clicked");
+//       oldButtonClicked.classList.add("unclicked");
+//       document
+//         .getElementById(`radio-btn-${button_index}`)
+//         .classList.remove("unclicked");
+//       document
+//         .getElementById(`radio-btn-${button_index}`)
+//         .classList.add("clicked");
+//       document.getElementById("slider-accueil").innerHTML =
+//         event_html[button_index];
+//     });
+// }
 
 inputSearch.addEventListener("input", () => {
   console.log("input");
