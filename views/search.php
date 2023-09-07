@@ -3,7 +3,7 @@
     <select class="search select-search" id="searchChoice">
         <option value="lieu">Lieu</option>
         <option value="event">Evenement</option>
-        <option value="both">Les Deux</option>
+        <option value="all">Tous</option>
 
     </select>
 </div>

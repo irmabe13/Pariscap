@@ -75,20 +75,32 @@ function displayLieux()
     }
     echo ("</div>");
 }
-
+function eventsHTML(string $class): array {
+    require("models/config/config.php");
+    $lesEvents = getEventsObjects();
+    $array_events = [];
+    foreach ($lesEvents as $event) {
+        $un_event = "<div class='" . $class . "' id='" . $event->get_id() .  "'>";
+        $un_event .= "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . $event->get_courte_description() . "</p>";
+        $un_event .= afficherPlusEvent($event->get_id());
+        $un_event .= "</div>";
+        array_push($array_events, $un_event);
+    }
+    return $array_events;
+}
 function displayEvents()
 {
     require("models/config/config.php");
-    $lesEvents = getEventsObjects();
-
-    echo ("<div class='events-container'>");
+    $lesEvents = eventsHTML("card-event");
+    
     foreach ($lesEvents as $event) {
         echo ("<div class='card-event'>");
-        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . $event->get_courte_description() . "</p>";
+        echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" .
+            "<img class='event-image' src='public/images/events" . "'>
+        <p class='courte-description'>" . $event->get_courte_description() . "</p>";
         echo (afficherPlusEvent($event->get_id()));
         echo ("</div>");
     }
-    echo ("</div>");
 }
 
 function displayLieu(int $id_lieu)
@@ -147,6 +159,20 @@ function caseEventHandler(int $eventId)
             echo '<a href="?s=lieu&idL=' . $event->get_lieu()->get_id() . '"> <input type="submit" value="Detail du lieu" /> </a>';
         }
     }
+}
+
+
+function getTransports($id_lieu)
+{
+    require("models\config\config.php");
+
+    $reqDesserte = "SELECT idtransport FROM desservir WHERE idlieu = $id_lieu";
+    $dessertes = $db->query($reqDesserte);
+    $les_dessertes = [];
+    foreach ($dessertes->fetchAll() as $desserte) {
+        array_push($les_dessertes, $desserte['idtransport']);
+    }
+    return $les_dessertes;
 }
 
 ?>
