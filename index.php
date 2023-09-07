@@ -34,21 +34,25 @@
         require("models/config/config.php");
         require("models/class/lieu.php");
         require("models/fonction/fonctions_bdd.php");
-        
+
         switch (@$_GET['s']) {
             default:
                 include "views/accueil.php";
-                ?><script>const event_html = <?php echo(json_encode(eventsHTML("card-event"))); ?></script><?php
+                ?>
+                <script>const event_html = <?php echo (json_encode(eventsHTML("card-event"))); ?></script>
+                <?php
                 break;
             case "accueil":
                 include "views/accueil.php";
-                ?><script>const event_html = <?php echo(json_encode(eventsHTML("card-event"))); ?></script><?php
+                ?>
+                <script>const event_html = <?php echo (json_encode(eventsHTML("card-event"))); ?></script>
+                <?php
                 break;
             case "lieux":
                 include "views/lieux.php";
                 break;
             case "evenement":
-                displayEvents();
+                include "views/events.php";
                 break;
             case "contact":
                 break;
@@ -68,9 +72,9 @@
         ?>
 
         <script type="text/javascript">
-        <?php
-        $php_array_lieux = getLieuxObject();
-        $php_array_events = getEventsObjects();
+            <?php
+            $php_array_lieux = getLieuxObject();
+            $php_array_events = getEventsObjects();
 
             $js_array_lieux = json_encode($php_array_lieux);
             $js_array_events = json_encode($php_array_events);
