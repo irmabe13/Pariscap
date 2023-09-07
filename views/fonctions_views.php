@@ -149,7 +149,7 @@ function displayLieu(int $id_lieu)
 }
 function caseEventHandler(int $eventId)
 {
-    require("models\config\config.php");
+    require("models/config/config.php");
 
     $lesEvents = getEventsObjects();
 
@@ -164,7 +164,7 @@ function caseEventHandler(int $eventId)
 
 function getTransports($id_lieu)
 {
-    require("models\config\config.php");
+    require("models/config/config.php");
 
     $reqDesserte = "SELECT idtransport FROM desservir WHERE idlieu = $id_lieu";
     $dessertes = $db->query($reqDesserte);

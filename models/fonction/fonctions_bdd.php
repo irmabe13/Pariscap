@@ -52,6 +52,7 @@ function getUnLieuObject($idLieu)
         $lieuCourteDescription = $lieu["courte_description"];
         $lieuNom = $lieu["nom"];
         $lieuDescription = $lieu['description'];
+        $courteDescription = $lieu['courte_description'];
         $lieuImage = ['image'];
 
         $reqDesservir = $db->query("SELECT idtransport FROM desservir WHERE idlieu = $lieuId");
