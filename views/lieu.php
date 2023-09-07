@@ -28,7 +28,7 @@
                 <br>
                 <p> <b> Evenements ici : </p>
                 <?= $event->get_titre() ?>
-                <a href="?s=event&idE=<?= $event->get_id() ?> "> <input type="submit" value="Detail de l\'evenement" /> </a>
+                <a href="?s=event&idE=<?= $event->get_id() ?> "> <input type="submit" value="Detail de l'evenement" /> </a>
             <?php endforeach; ?>
         <?php endif; ?>
     <?php endforeach; ?>
