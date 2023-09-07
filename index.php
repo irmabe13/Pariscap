@@ -34,7 +34,7 @@
         require("models/config/config.php");
         require("models/class/lieu.php");
         require("models/fonction/fonctions_bdd.php");
-
+        if (isset($_GET['s'])) {
         switch (@$_GET['s']) {
             default:
                 include "views/accueil.php";
@@ -55,6 +55,7 @@
                 include "views/events.php";
                 break;
             case "contact":
+                include "views/contact.php";
                 break;
             case "lieu":
                 //  displayLieu($_GET['idL']);
@@ -67,7 +68,7 @@
                 // caseEventHandler($_GET['idE']);
                 include "views/event.php";
                 break;
-
+        }
         }
         ?>
 

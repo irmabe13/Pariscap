@@ -153,47 +153,55 @@ try {
 } catch (error) {
   console.error(error);
 }
-// const nb_events = event_html.length;
-// for (let button_index = 0; button_index < nb_events; button_index++) {
-//   document
-//     .getElementById(`radio-btn-${button_index}`)
-//     .addEventListener("click", () => {
-//       let oldButtonClicked = document.getElementsByClassName("clicked")[0];
-//       console.log(oldButtonClicked);
-//       oldButtonClicked.classList.remove("clicked");
-//       oldButtonClicked.classList.add("unclicked");
-//       document
-//         .getElementById(`radio-btn-${button_index}`)
-//         .classList.remove("unclicked");
-//       document
-//         .getElementById(`radio-btn-${button_index}`)
-//         .classList.add("clicked");
-//       document.getElementById("slider-accueil").innerHTML =
-//         event_html[button_index];
-//     });
-// }
+try {
 
-inputSearch.addEventListener("input", () => {
-  console.log("input");
-  console.log(searchChoice.value);
-  if (searchChoice.value == "lieu") {
-    displayLieux();
-  } else if (searchChoice.value == "event") {
-    displayEvents();
+
+  const nb_events = event_html.length;
+  for (let button_index = 0; button_index < nb_events; button_index++) {
+  document.getElementById(`radio-btn-${button_index}`).addEventListener("click", () => {
+    let oldButtonClicked = document.getElementsByClassName("clicked")[0];
+    console.log(oldButtonClicked);
+    oldButtonClicked.classList.remove("clicked");
+    oldButtonClicked.classList.add("unclicked");
+    document
+      .getElementById(`radio-btn-${button_index}`)
+      .classList.remove("unclicked");
+    document
+      .getElementById(`radio-btn-${button_index}`)
+      .classList.add("clicked");
+    document.getElementById("slider-accueil").innerHTML = event_html[button_index];
+    });
   }
-});
+}
+catch (error) {
+  console.error(error)
+}
+try {
+  inputSearch.addEventListener("input", () => {
+    console.log("input");
+    console.log(searchChoice.value);
+    if (searchChoice.value == "lieu") {
+      displayLieux();
+    } else if (searchChoice.value == "event") {
+      displayEvents();
+    }
+  });
 
-searchChoice.addEventListener("input", () => {
-  if (searchChoice.value == "lieu") {
-    displayLieux();
-    inputSearch.placeholder = "Rechercher un lieu";
-  } else if (searchChoice.value == "event") {
-    displayEvents();
-    inputSearch.placeholder = "Rechercher un event";
-  } else if (searchChoice.value == "all") {
-    displayBoth();
-    inputSearch.placeholder = "Rechercher un lieu/evenement";
-  }
-});
+  searchChoice.addEventListener("input", () => {
+    if (searchChoice.value == "lieu") {
+      displayLieux();
+      inputSearch.placeholder = "Rechercher un lieu";
+    } else if (searchChoice.value == "event") {
+      displayEvents();
+      inputSearch.placeholder = "Rechercher un event";
+    } else if (searchChoice.value == "all") {
+      displayBoth();
+      inputSearch.placeholder = "Rechercher un lieu/evenement";
+    }
+  });
 
-displayLieux();
+  displayLieux();
+}
+catch (error) {
+  console.error(error);
+}

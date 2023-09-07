@@ -1,6 +1,7 @@
 <?php
 $eventId = $_GET['idE'];
 $lesEvents = getEventsObjects(); ?>
+<?php print_r($lesEvents); ?>
 <?php foreach ($lesEvents as $event): ?>
     <?php if ($event->get_id() == $eventId): ?>
 
