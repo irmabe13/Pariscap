@@ -12,13 +12,30 @@ $lesEvents = getEventsObjects(); ?>
         <p class='description'>
                 <?= $event->get_description(); ?>
         </p>
-        <div class='debut-event'>
-            <?= $event->get_date_debut() ?>
+
+        <?php
+            function eng_dat_to_fr_date(string $date): string 
+            {
+                $array_date = explode("-", $date);
+
+                return $array_date[2] . "-" . $array_date[1] . "-" . $array_date[0];
+            }
+
+            assert(eng_dat_to_fr_date('yyyy-mm-jj')) == "jj-mm-yyyy";
+
+        $date_debut = eng_dat_to_fr_date($event->get_date_debut());
+        $date_fin = eng_dat_to_fr_date($event->get_date_fin());
+        ?>
+        <div class='date-event'>
+               <strong> DU <?= $date_debut ?> AU <?= $date_fin ?> </strong>
         </div>
         
         <div class='box-prix'>
-            <?= $event->get_prix() ?>
+            <p>
+                <strong> <?= $event->get_prix() ?> € </strong>
+            </p>
         </div>
+        
 
 
     <?php endif; ?>
