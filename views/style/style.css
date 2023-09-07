@@ -135,7 +135,6 @@ body {
   width: 20vw;
   min-width: 300px;
   min-height: 285px;
-  max-height: 50vh;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
@@ -143,7 +142,7 @@ body {
   background: #fafafa;
   padding: 10px;
   margin: 0 auto;
-  width: 20vw;
+  width: 60vw;
   min-width: 300px;
   min-height: 285px;
   max-height: 50vh;
