@@ -174,7 +174,7 @@ body {
 .plus:hover {
   background: #c9733a;
 }
-.monument-card {
+.monument-card, .event-card {
   width: 80vw;
   margin: 20px auto;
   padding: 10px;
@@ -184,7 +184,7 @@ body {
 .nom-monument {
   text-align: center;
 }
-.image-monument {
+.image-monument, .image-event {
   display: block;
   margin: 10px auto;
   width: 60vw;
@@ -428,4 +428,11 @@ nav {
   .nav-icon span {
     font-size: 20px;
   }
+}
+.date-event {
+  margin-top: 10px;
+}
+.box-prix {
+  text-align:right;
+  ;
 }
