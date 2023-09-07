@@ -308,7 +308,13 @@ nav {
     border-radius: 100%;
     background: #e68545;
 }
-
+.contact-container {
+    width: 80vw;
+    margin: 20px auto;
+    padding: 10px;
+    background: #fafafa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
 @media (max-width: 900px) {
     nav {
       padding: 15px 20px;
