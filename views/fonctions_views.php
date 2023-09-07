@@ -75,13 +75,14 @@ function displayLieux()
     }
     echo ("</div>");
 }
-function eventsHTML(string $class): array {
+function eventsHTML(string $class): array
+{
     require("models/config/config.php");
     $lesEvents = getEventsObjects();
     $array_events = [];
     foreach ($lesEvents as $event) {
-        $un_event = "<div class='" . $class . "' id='" . $event->get_id() .  "'>";
-        $un_event .= "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='event-image' src='public\images\\" . "'><p class='courte-description'>" . $event->get_courte_description() . "</p>";
+        $un_event = "<div class='" . $class . "' id='" . $event->get_id() . "'>";
+        $un_event .= "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='lieu-image' src='public/images/events/" . $event->get_image() . "'>" . "<p class='courte-description'>" . $event->get_courte_description() . "</p>";
         $un_event .= afficherPlusEvent($event->get_id());
         $un_event .= "</div>";
         array_push($array_events, $un_event);
@@ -92,11 +93,11 @@ function displayEvents()
 {
     require("models/config/config.php");
     $lesEvents = eventsHTML("card-event");
-    
+
     foreach ($lesEvents as $event) {
         echo ("<div class='card-event'>");
         echo "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" .
-            "<img class='event-image' src='public/images/events" . "'>
+            "<img class='event-image' src='public/images/events/" . $event->get_image() . "'>" . "
         <p class='courte-description'>" . $event->get_courte_description() . "</p>";
         echo (afficherPlusEvent($event->get_id()));
         echo ("</div>");
