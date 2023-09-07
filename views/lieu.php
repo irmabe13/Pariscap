@@ -9,7 +9,7 @@
             <h2 class='nom-monument'>
                 <?= $lieu->get_nom() ?>
             </h2>
-            <img class='image-monument' src='public/images/petit_<?= $lieu->get_image()?>'></img>
+            <img class='image-monument' src='public/images/<?= $lieu->get_image() ?>'></img>
             <p class='description'>
                 <?= $lieu->get_description(); ?>
             </p>

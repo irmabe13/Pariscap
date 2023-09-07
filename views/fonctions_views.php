@@ -163,17 +163,6 @@ function caseEventHandler(int $eventId)
 }
 
 
-function getTransports($id_lieu)
-{
-    require("models/config/config.php");
 
-    $reqDesserte = "SELECT idtransport FROM desservir WHERE idlieu = $id_lieu";
-    $dessertes = $db->query($reqDesserte);
-    $les_dessertes = [];
-    foreach ($dessertes->fetchAll() as $desserte) {
-        array_push($les_dessertes, $desserte['idtransport']);
-    }
-    return $les_dessertes;
-}
 
 ?>
