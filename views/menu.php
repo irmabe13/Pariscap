@@ -21,4 +21,4 @@
         <?php endforeach; ?>
     </div>
 </div>
-<a href="?s=search"><img class="searchLogo" src="public\images\logo_recherche.png"></a>
+<a href="?s=search"><img class="searchLogo" src="public/images/logo_recherche.png"></a>

@@ -20,7 +20,7 @@ function afficherMenu()
     }
     echo ("</div>");
     echo ("</div>");
-    echo '<a href="?s=search"><img class="searchLogo" src="public\images\logo_recherche.png"></a>';
+    echo '<a href="?s=search"><img class="searchLogo" src="public/images/logo_recherche.png"></a>';
 
 
 }
@@ -47,7 +47,7 @@ function Lieux_HTML()
         $lieux_html = "<div class='card-lieu'>";
         $lieux_html .= "<div class='card-lieu-inner'>";
         $lieux_html .= "<div class='card-lieu-front'>";
-        $lieux_html .= "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public\images\\" . $lieu->get_image() . "'>";
+        $lieux_html .= "<h2 class='nom-lieu'>" . $lieu->get_nom() . "</h2>" . "<img class='lieu-image' src='public/images/" . $lieu->get_image() . "'>";
         $lieux_html .= afficherPlus($lieu->get_id());
         $lieux_html .= "</div>";
         $lieux_html .= "<div class='card-lieu-back'>";
