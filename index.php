@@ -10,21 +10,9 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav>
-            <a href="?s=accueil"><img class="logo" src="public/images/logo_tour_eiffel.png" alt="Logo de la tour eiffel qui redirige vers la page d'accueil lorsque l'on clique dessus"></a>
-            <div class="main-navlinks">
-                <button type="button" class="hamburger open" aria-label="Toggle Navigation" aria-expanded="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-            <?php
-            include "views/menu.php"
-                ?>
-        </nav>
-    </header>
+    <?php
+    include "views/header.php";
+    ?>
     <main>
 
         <?php

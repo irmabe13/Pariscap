@@ -10,20 +10,25 @@
                 <?= $lieu->get_nom() ?>
             </h2>
             <img class='image-monument' src='public/images/<?= $lieu->get_image() ?>'></img>
-            <p class='description'>
-                <?= $lieu->get_description(); ?>
-            </p>
+            <div class="description-container">
+                <p class='description'>
+                    <?= $lieu->get_description(); ?>
+                </p>
+            </div>
             <?php $les_dessertes = getTransports($id_lieu) ?>
             <div class='box-transports'>
+                <table>
                 <?php foreach ($les_transports as $transport):
-                    if (in_array($transport->get_id(), $les_dessertes)): ?>
+                    if (in_array($transport->get_id(), $les_dessertes)): 
+                        $logo_type = ["metro" => "round", "rer" => "round", "bus" => "rectangle"][$transport->get_type()]; ?>
                         <div class='transports'>
                             <img class='logo-ratp' src='public/images/transports/<?= $transport->get_type() ?>.jpg'>
-                            <img class='numero-ligne' src='public/images/transports/ligne_<?= $transport->get_ligne() ?>.jpg'>
-                            <p><?php $transport->get_arret() ?></p>
+                            <img class='numero-ligne-<?php echo($logo_type)?>' src='public/images/transports/ligne_<?= $transport->get_ligne() ?>.html'>
+                            <p><?php echo($transport->get_arret()) ?></p>
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
+                </table>
             </div>
             <?php foreach ($lesEvents as $event): ?>
                 <br>
