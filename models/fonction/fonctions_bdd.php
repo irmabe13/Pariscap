@@ -80,16 +80,6 @@ function getUnLieuObject($idLieu)
 }
 
 
-// function displayLieux(array $lesLieux)
-// {
-//     require("models/config/config.php");
-//     echo "<h2> Les Lieux </h2>";
-
-//     foreach ($lesLieux as $lieu) {
-
-//         echo "<b> Nom du Lieu : </b> " . $lieu->get_nom() . "<br>" . " <b> Description du lieu : </b>" . $lieu->get_description() . "<br>" . "<br>";
-//     }
-// }
 
 function getTransportsObject(): array
 {
@@ -114,16 +104,6 @@ function getTransportsObject(): array
 
 }
 
-
-// function displayTransports(array $lesTransports)
-// {
-//     echo "<h2> Les transports </h2>";
-
-//     foreach ($lesTransports as $transport) {
-
-//         echo " <b> Nom de la ligne : </b> " . $transport->get_arret() . " <b> Numéro de la ligne : </b> " . $transport->get_ligne() . "<br>";
-//     }
-// }
 
 
 
@@ -179,13 +159,7 @@ function getEventsObjectsFromLieu(int $idLieu)
     return $lesEvents;
 }
 
-// function displayEvents(array $lesEvents)
-// {
-//     foreach ($lesEvents as $event) {
-//         echo "<h2> Events </h2>";
-//         echo " <b> Nom de l'evenement : </b> " . $event->get_titre() . " <b> Description : </b> " . $event->get_description();
-//     }
-// }
+
 function get_transports($id_lieu, $transports)
 {
     require("models/config/config.php");
@@ -210,5 +184,19 @@ function getTransports($id_lieu)
     return $les_dessertes;
 }
 
+function eventsHTML(string $class): array
+{
+    require("models/config/config.php");
+    $lesEvents = getEventsObjects();
+    $array_events = [];
+    foreach ($lesEvents as $event) {
+        $un_event = "<div class='" . $class . "' id='" . $event->get_id() . "'>";
+        $un_event .= "<h2 class='nom-event'>" . $event->get_titre() . "</h2>" . "<img class='lieu-image' src='public/images/events/" . $event->get_image() . "'>" . "<p class='courte-description'>" . $event->get_courte_description() . "</p>";
+        $un_event .= afficherPlusEvent($event->get_id());
+        $un_event .= "</div>";
+        array_push($array_events, $un_event);
+    }
+    return $array_events;
+}
 
 ?>
